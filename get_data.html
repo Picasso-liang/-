@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'bootstrap-3.4.1-dist/css/bootstrap.min.css' %}">
+    <script src="{% static 'js/jquery-3.7.1.min.js' %}"></script>
+    <script src="{% static 'bootstrap-3.4.1-dist/js/bootstrap.min.js' %}"></script>
+</head>
+<body>
+<form action="" method="post">
+        <p>题目: <input type="text" name="title"></p>
+        <p>选项A: <input type="text" name="a"></p>
+        <p>选项B: <input type="text" name="b"></p>
+        <p>选项C: <input type="text" name="c"></p>
+        <p>选项D: <input type="text" name="d"></p>
+        <p>正确答案: <input type="text" name="real"></p>
+        <p>答案解析: <input type="text" name="answer"></p>
+        <p>难度值（数字）<input type="text" name="hard"></p>
+        {% for obj in body %}
+            <input type="checkbox" name="xxx" value="{{ obj.pk }}">{{ obj.knowledge_pot }}
+        {% endfor %}
+        <button>提交</button>
+    </form>
+</body>
+</html>
