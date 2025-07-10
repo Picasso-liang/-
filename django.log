@@ -1,0 +1,1015 @@
+WARNING 2025-07-09 17:56:59,050 log 36356 39760 Not Found: /favicon.ico
+WARNING 2025-07-09 17:56:59,050 basehttp 36356 39760 "GET /favicon.ico HTTP/1.1" 404 3084
+WARNING 2025-07-09 18:41:45,417 log 33784 40276 Not Found: /favicon.ico
+WARNING 2025-07-09 18:41:45,417 basehttp 33784 40276 "GET /favicon.ico HTTP/1.1" 404 3084
+WARNING 2025-07-09 18:42:10,898 log 33784 33972 Not Found: /favicon.ico
+WARNING 2025-07-09 18:42:10,898 basehttp 33784 33972 "GET /favicon.ico HTTP/1.1" 404 3084
+WARNING 2025-07-09 18:43:05,088 log 33972 35260 Not Found: /favicon.ico
+WARNING 2025-07-09 18:43:05,089 basehttp 33972 35260 "GET /favicon.ico HTTP/1.1" 404 3084
+WARNING 2025-07-09 18:45:03,383 log 19140 19848 Not Found: /favicon.ico
+WARNING 2025-07-09 18:45:03,384 basehttp 19140 19848 "GET /favicon.ico HTTP/1.1" 404 3084
+WARNING 2025-07-09 18:45:09,350 log 19140 19848 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-07-09 18:45:09,350 basehttp 19140 19848 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3195
+WARNING 2025-07-09 18:47:11,749 log 19140 27656 Not Found: /favicon.ico
+WARNING 2025-07-09 18:47:11,750 basehttp 19140 27656 "GET /favicon.ico HTTP/1.1" 404 3084
+WARNING 2025-07-09 18:47:46,569 log 19140 5456 Not Found: /favicon.ico
+WARNING 2025-07-09 18:47:46,569 basehttp 19140 5456 "GET /favicon.ico HTTP/1.1" 404 3084
+WARNING 2025-07-09 18:48:06,859 log 19140 5456 Not Found: /home/活跃社区.html
+WARNING 2025-07-09 18:48:06,860 basehttp 19140 5456 "GET /home/%E6%B4%BB%E8%B7%83%E7%A4%BE%E5%8C%BA.html HTTP/1.1" 404 3141
+WARNING 2025-07-09 18:52:49,680 log 19140 20012 Not Found: /favicon.ico
+WARNING 2025-07-09 18:52:49,681 basehttp 19140 20012 "GET /favicon.ico HTTP/1.1" 404 3084
+WARNING 2025-07-09 18:55:45,970 log 19140 19628 Not Found: /favicon.ico
+WARNING 2025-07-09 18:55:45,970 basehttp 19140 19628 "GET /favicon.ico HTTP/1.1" 404 3084
+WARNING 2025-07-09 19:17:45,711 log 24768 35448 Not Found: /favicon.ico
+WARNING 2025-07-09 19:17:45,711 basehttp 24768 35448 "GET /favicon.ico HTTP/1.1" 404 3084
+ERROR 2025-07-09 19:17:49,036 views 24768 35448 用户 wyc 加载挑战题目失败: Reverse for 'submit_quiz_results' not found. 'submit_quiz_results' is not a valid view function or pattern name.
+Traceback (most recent call last):
+  File "E:\pycharm\django store\headhunter2\app01\views.py", line 175, in start
+    return render(request, 'start.html', locals())
+  File "E:\python\真正的python\lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "E:\python\真正的python\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "E:\python\真正的python\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "E:\python\真正的python\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "E:\python\真正的python\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "E:\python\真正的python\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "E:\python\真正的python\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "E:\python\真正的python\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "E:\python\真正的python\lib\site-packages\django\template\defaulttags.py", line 471, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "E:\python\真正的python\lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "E:\python\真正的python\lib\site-packages\django\urls\resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'submit_quiz_results' not found. 'submit_quiz_results' is not a valid view function or pattern name.
+ERROR 2025-07-09 19:17:55,542 views 24768 35448 用户 wyc 加载挑战题目失败: Reverse for 'submit_quiz_results' not found. 'submit_quiz_results' is not a valid view function or pattern name.
+Traceback (most recent call last):
+  File "E:\pycharm\django store\headhunter2\app01\views.py", line 175, in start
+    return render(request, 'start.html', locals())
+  File "E:\python\真正的python\lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "E:\python\真正的python\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "E:\python\真正的python\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "E:\python\真正的python\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "E:\python\真正的python\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "E:\python\真正的python\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "E:\python\真正的python\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "E:\python\真正的python\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "E:\python\真正的python\lib\site-packages\django\template\defaulttags.py", line 471, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "E:\python\真正的python\lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "E:\python\真正的python\lib\site-packages\django\urls\resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'submit_quiz_results' not found. 'submit_quiz_results' is not a valid view function or pattern name.
+ERROR 2025-07-09 19:17:57,402 views 24768 35448 用户 wyc 加载挑战题目失败: Reverse for 'submit_quiz_results' not found. 'submit_quiz_results' is not a valid view function or pattern name.
+Traceback (most recent call last):
+  File "E:\pycharm\django store\headhunter2\app01\views.py", line 175, in start
+    return render(request, 'start.html', locals())
+  File "E:\python\真正的python\lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "E:\python\真正的python\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "E:\python\真正的python\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "E:\python\真正的python\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "E:\python\真正的python\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "E:\python\真正的python\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "E:\python\真正的python\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "E:\python\真正的python\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "E:\python\真正的python\lib\site-packages\django\template\defaulttags.py", line 471, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "E:\python\真正的python\lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "E:\python\真正的python\lib\site-packages\django\urls\resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'submit_quiz_results' not found. 'submit_quiz_results' is not a valid view function or pattern name.
+ERROR 2025-07-09 19:17:59,513 views 24768 35448 用户 wyc 加载挑战题目失败: Reverse for 'submit_quiz_results' not found. 'submit_quiz_results' is not a valid view function or pattern name.
+Traceback (most recent call last):
+  File "E:\pycharm\django store\headhunter2\app01\views.py", line 175, in start
+    return render(request, 'start.html', locals())
+  File "E:\python\真正的python\lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "E:\python\真正的python\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "E:\python\真正的python\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "E:\python\真正的python\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "E:\python\真正的python\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "E:\python\真正的python\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "E:\python\真正的python\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "E:\python\真正的python\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "E:\python\真正的python\lib\site-packages\django\template\defaulttags.py", line 471, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "E:\python\真正的python\lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "E:\python\真正的python\lib\site-packages\django\urls\resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'submit_quiz_results' not found. 'submit_quiz_results' is not a valid view function or pattern name.
+ERROR 2025-07-09 19:18:09,372 views 8896 39004 用户 wyc 加载挑战题目失败: Reverse for 'submit_quiz_results' not found. 'submit_quiz_results' is not a valid view function or pattern name.
+Traceback (most recent call last):
+  File "E:\pycharm\django store\headhunter2\app01\views.py", line 175, in start
+    return render(request, 'start.html', locals())
+  File "E:\python\真正的python\lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "E:\python\真正的python\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "E:\python\真正的python\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "E:\python\真正的python\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "E:\python\真正的python\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "E:\python\真正的python\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "E:\python\真正的python\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "E:\python\真正的python\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "E:\python\真正的python\lib\site-packages\django\template\defaulttags.py", line 471, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "E:\python\真正的python\lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "E:\python\真正的python\lib\site-packages\django\urls\resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'submit_quiz_results' not found. 'submit_quiz_results' is not a valid view function or pattern name.
+ERROR 2025-07-09 19:18:10,548 views 8896 39004 用户 wyc 加载挑战题目失败: Reverse for 'submit_quiz_results' not found. 'submit_quiz_results' is not a valid view function or pattern name.
+Traceback (most recent call last):
+  File "E:\pycharm\django store\headhunter2\app01\views.py", line 175, in start
+    return render(request, 'start.html', locals())
+  File "E:\python\真正的python\lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "E:\python\真正的python\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "E:\python\真正的python\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "E:\python\真正的python\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "E:\python\真正的python\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "E:\python\真正的python\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "E:\python\真正的python\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "E:\python\真正的python\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "E:\python\真正的python\lib\site-packages\django\template\defaulttags.py", line 471, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "E:\python\真正的python\lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "E:\python\真正的python\lib\site-packages\django\urls\resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'submit_quiz_results' not found. 'submit_quiz_results' is not a valid view function or pattern name.
+WARNING 2025-07-09 19:18:12,565 log 8896 39304 Not Found: /favicon.ico
+WARNING 2025-07-09 19:18:12,566 basehttp 8896 39304 "GET /favicon.ico HTTP/1.1" 404 3084
+ERROR 2025-07-09 19:18:13,641 views 8896 39304 用户 wyc 加载挑战题目失败: Reverse for 'submit_quiz_results' not found. 'submit_quiz_results' is not a valid view function or pattern name.
+Traceback (most recent call last):
+  File "E:\pycharm\django store\headhunter2\app01\views.py", line 175, in start
+    return render(request, 'start.html', locals())
+  File "E:\python\真正的python\lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "E:\python\真正的python\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "E:\python\真正的python\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "E:\python\真正的python\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "E:\python\真正的python\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "E:\python\真正的python\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "E:\python\真正的python\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "E:\python\真正的python\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "E:\python\真正的python\lib\site-packages\django\template\defaulttags.py", line 471, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "E:\python\真正的python\lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "E:\python\真正的python\lib\site-packages\django\urls\resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'submit_quiz_results' not found. 'submit_quiz_results' is not a valid view function or pattern name.
+WARNING 2025-07-09 19:19:36,261 log 8896 36104 Not Found: /favicon.ico
+WARNING 2025-07-09 19:19:36,262 basehttp 8896 36104 "GET /favicon.ico HTTP/1.1" 404 3084
+WARNING 2025-07-09 19:19:37,994 log 8896 36104 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-07-09 19:19:37,994 basehttp 8896 36104 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3195
+WARNING 2025-07-09 19:19:43,319 log 8896 36104 Not Found: /favicon.ico
+WARNING 2025-07-09 19:19:43,320 basehttp 8896 36104 "GET /favicon.ico HTTP/1.1" 404 3084
+WARNING 2025-07-09 19:19:46,454 log 8896 36104 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-07-09 19:19:46,454 basehttp 8896 36104 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3195
+WARNING 2025-07-09 19:19:47,535 log 8896 36104 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-07-09 19:19:47,535 basehttp 8896 36104 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3195
+WARNING 2025-07-09 19:21:53,903 log 8896 36104 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-07-09 19:21:53,903 basehttp 8896 36104 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3195
+WARNING 2025-07-09 19:22:36,178 log 8896 36104 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-07-09 19:22:36,178 basehttp 8896 36104 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3195
+WARNING 2025-07-09 19:23:53,719 log 8896 36104 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-07-09 19:23:53,720 basehttp 8896 36104 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3195
+ERROR 2025-07-09 19:25:09,839 views 8896 36104 用户 wyc 加载挑战题目失败: Reverse for 'submit_quiz_results' not found. 'submit_quiz_results' is not a valid view function or pattern name.
+Traceback (most recent call last):
+  File "E:\pycharm\django store\headhunter2\app01\views.py", line 175, in start
+    return render(request, 'start.html', locals())
+  File "E:\python\真正的python\lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "E:\python\真正的python\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "E:\python\真正的python\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "E:\python\真正的python\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "E:\python\真正的python\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "E:\python\真正的python\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "E:\python\真正的python\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "E:\python\真正的python\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "E:\python\真正的python\lib\site-packages\django\template\defaulttags.py", line 471, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "E:\python\真正的python\lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "E:\python\真正的python\lib\site-packages\django\urls\resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'submit_quiz_results' not found. 'submit_quiz_results' is not a valid view function or pattern name.
+WARNING 2025-07-09 19:25:09,853 log 8896 36104 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-07-09 19:25:09,853 basehttp 8896 36104 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3195
+ERROR 2025-07-09 19:25:17,474 views 8896 36104 用户 wyc 加载挑战题目失败: Reverse for 'submit_quiz_results' not found. 'submit_quiz_results' is not a valid view function or pattern name.
+Traceback (most recent call last):
+  File "E:\pycharm\django store\headhunter2\app01\views.py", line 175, in start
+    return render(request, 'start.html', locals())
+  File "E:\python\真正的python\lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "E:\python\真正的python\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "E:\python\真正的python\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "E:\python\真正的python\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "E:\python\真正的python\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "E:\python\真正的python\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "E:\python\真正的python\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "E:\python\真正的python\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "E:\python\真正的python\lib\site-packages\django\template\defaulttags.py", line 471, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "E:\python\真正的python\lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "E:\python\真正的python\lib\site-packages\django\urls\resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'submit_quiz_results' not found. 'submit_quiz_results' is not a valid view function or pattern name.
+WARNING 2025-07-09 19:25:17,486 log 8896 36104 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-07-09 19:25:17,486 basehttp 8896 36104 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3195
+ERROR 2025-07-09 19:25:17,988 views 8896 36104 用户 wyc 加载挑战题目失败: Reverse for 'submit_quiz_results' not found. 'submit_quiz_results' is not a valid view function or pattern name.
+Traceback (most recent call last):
+  File "E:\pycharm\django store\headhunter2\app01\views.py", line 175, in start
+    return render(request, 'start.html', locals())
+  File "E:\python\真正的python\lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "E:\python\真正的python\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "E:\python\真正的python\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "E:\python\真正的python\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "E:\python\真正的python\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "E:\python\真正的python\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "E:\python\真正的python\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "E:\python\真正的python\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "E:\python\真正的python\lib\site-packages\django\template\defaulttags.py", line 471, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "E:\python\真正的python\lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "E:\python\真正的python\lib\site-packages\django\urls\resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'submit_quiz_results' not found. 'submit_quiz_results' is not a valid view function or pattern name.
+WARNING 2025-07-09 19:25:17,999 log 8896 36104 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-07-09 19:25:17,999 basehttp 8896 36104 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3195
+ERROR 2025-07-09 19:25:18,262 views 8896 36104 用户 wyc 加载挑战题目失败: Reverse for 'submit_quiz_results' not found. 'submit_quiz_results' is not a valid view function or pattern name.
+Traceback (most recent call last):
+  File "E:\pycharm\django store\headhunter2\app01\views.py", line 175, in start
+    return render(request, 'start.html', locals())
+  File "E:\python\真正的python\lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "E:\python\真正的python\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "E:\python\真正的python\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "E:\python\真正的python\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "E:\python\真正的python\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "E:\python\真正的python\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "E:\python\真正的python\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "E:\python\真正的python\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "E:\python\真正的python\lib\site-packages\django\template\defaulttags.py", line 471, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "E:\python\真正的python\lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "E:\python\真正的python\lib\site-packages\django\urls\resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'submit_quiz_results' not found. 'submit_quiz_results' is not a valid view function or pattern name.
+WARNING 2025-07-09 19:25:18,280 log 8896 36104 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-07-09 19:25:18,280 basehttp 8896 36104 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3195
+ERROR 2025-07-09 19:25:42,470 views 8896 36104 用户 wyc 加载挑战题目失败: Reverse for 'submit_quiz_results' not found. 'submit_quiz_results' is not a valid view function or pattern name.
+Traceback (most recent call last):
+  File "E:\pycharm\django store\headhunter2\app01\views.py", line 175, in start
+    return render(request, 'start.html', locals())
+  File "E:\python\真正的python\lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "E:\python\真正的python\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "E:\python\真正的python\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "E:\python\真正的python\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "E:\python\真正的python\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "E:\python\真正的python\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "E:\python\真正的python\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "E:\python\真正的python\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "E:\python\真正的python\lib\site-packages\django\template\defaulttags.py", line 471, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "E:\python\真正的python\lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "E:\python\真正的python\lib\site-packages\django\urls\resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'submit_quiz_results' not found. 'submit_quiz_results' is not a valid view function or pattern name.
+WARNING 2025-07-09 19:25:42,485 log 8896 36104 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-07-09 19:25:42,485 basehttp 8896 36104 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3195
+ERROR 2025-07-09 19:25:42,902 views 8896 36104 用户 wyc 加载挑战题目失败: Reverse for 'submit_quiz_results' not found. 'submit_quiz_results' is not a valid view function or pattern name.
+Traceback (most recent call last):
+  File "E:\pycharm\django store\headhunter2\app01\views.py", line 175, in start
+    return render(request, 'start.html', locals())
+  File "E:\python\真正的python\lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "E:\python\真正的python\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "E:\python\真正的python\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "E:\python\真正的python\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "E:\python\真正的python\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "E:\python\真正的python\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "E:\python\真正的python\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "E:\python\真正的python\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "E:\python\真正的python\lib\site-packages\django\template\defaulttags.py", line 471, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "E:\python\真正的python\lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "E:\python\真正的python\lib\site-packages\django\urls\resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'submit_quiz_results' not found. 'submit_quiz_results' is not a valid view function or pattern name.
+WARNING 2025-07-09 19:25:42,917 log 8896 36104 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-07-09 19:25:42,918 basehttp 8896 36104 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3195
+ERROR 2025-07-09 19:25:43,131 views 8896 36104 用户 wyc 加载挑战题目失败: Reverse for 'submit_quiz_results' not found. 'submit_quiz_results' is not a valid view function or pattern name.
+Traceback (most recent call last):
+  File "E:\pycharm\django store\headhunter2\app01\views.py", line 175, in start
+    return render(request, 'start.html', locals())
+  File "E:\python\真正的python\lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "E:\python\真正的python\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "E:\python\真正的python\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "E:\python\真正的python\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "E:\python\真正的python\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "E:\python\真正的python\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "E:\python\真正的python\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "E:\python\真正的python\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "E:\python\真正的python\lib\site-packages\django\template\defaulttags.py", line 471, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "E:\python\真正的python\lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "E:\python\真正的python\lib\site-packages\django\urls\resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'submit_quiz_results' not found. 'submit_quiz_results' is not a valid view function or pattern name.
+WARNING 2025-07-09 19:25:43,144 log 8896 36104 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-07-09 19:25:43,144 basehttp 8896 36104 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3195
+ERROR 2025-07-09 19:25:43,310 views 8896 36104 用户 wyc 加载挑战题目失败: Reverse for 'submit_quiz_results' not found. 'submit_quiz_results' is not a valid view function or pattern name.
+Traceback (most recent call last):
+  File "E:\pycharm\django store\headhunter2\app01\views.py", line 175, in start
+    return render(request, 'start.html', locals())
+  File "E:\python\真正的python\lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "E:\python\真正的python\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "E:\python\真正的python\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "E:\python\真正的python\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "E:\python\真正的python\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "E:\python\真正的python\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "E:\python\真正的python\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "E:\python\真正的python\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "E:\python\真正的python\lib\site-packages\django\template\defaulttags.py", line 471, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "E:\python\真正的python\lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "E:\python\真正的python\lib\site-packages\django\urls\resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'submit_quiz_results' not found. 'submit_quiz_results' is not a valid view function or pattern name.
+WARNING 2025-07-09 19:25:43,323 log 8896 36104 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-07-09 19:25:43,323 basehttp 8896 36104 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3195
+WARNING 2025-07-09 19:26:01,218 log 8896 36104 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-07-09 19:26:01,218 basehttp 8896 36104 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3195
+WARNING 2025-07-09 19:41:24,660 log 27272 26428 Not Found: /favicon.ico
+WARNING 2025-07-09 19:41:24,660 basehttp 27272 26428 "GET /favicon.ico HTTP/1.1" 404 3084
+WARNING 2025-07-09 19:41:44,667 log 27272 26428 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-07-09 19:41:44,668 basehttp 27272 26428 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3195
+WARNING 2025-07-09 19:44:34,104 log 27272 26428 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-07-09 19:44:34,104 basehttp 27272 26428 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3195
+WARNING 2025-07-09 19:44:59,210 log 27272 26428 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-07-09 19:44:59,211 basehttp 27272 26428 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3195
+WARNING 2025-07-09 19:45:00,977 log 27272 26428 Forbidden (CSRF token missing.): /start/
+WARNING 2025-07-09 19:45:00,977 basehttp 27272 26428 "POST /start/?difficulty=easy HTTP/1.1" 403 2506
+WARNING 2025-07-09 19:45:00,998 log 27272 26428 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-07-09 19:45:00,998 basehttp 27272 26428 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3195
+WARNING 2025-07-09 19:45:46,909 log 27272 26428 Forbidden (CSRF token missing.): /start/
+WARNING 2025-07-09 19:45:46,909 basehttp 27272 26428 "POST /start/?difficulty=easy HTTP/1.1" 403 2506
+WARNING 2025-07-09 19:45:46,922 log 27272 26428 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-07-09 19:45:46,922 basehttp 27272 26428 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3195
+WARNING 2025-07-09 19:46:04,198 log 36836 19400 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-07-09 19:46:04,198 basehttp 36836 19400 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3195
+WARNING 2025-07-09 19:47:28,157 log 33676 29388 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-07-09 19:47:28,157 basehttp 33676 29388 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3195
+WARNING 2025-07-09 19:48:14,526 log 19440 5544 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-07-09 19:48:14,526 basehttp 19440 5544 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3195
+WARNING 2025-07-09 19:51:32,893 log 38368 17784 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-07-09 19:51:32,893 basehttp 38368 17784 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3195
+WARNING 2025-07-09 19:51:53,190 log 38368 17784 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-07-09 19:51:53,190 basehttp 38368 17784 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3195
+WARNING 2025-07-09 19:54:06,307 log 38368 17784 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-07-09 19:54:06,307 basehttp 38368 17784 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3195
+WARNING 2025-07-09 19:54:28,397 log 41944 6044 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-07-09 19:54:28,397 basehttp 41944 6044 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3195
+WARNING 2025-07-09 19:54:59,686 log 41944 6044 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-07-09 19:54:59,686 basehttp 41944 6044 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3195
+WARNING 2025-07-09 19:56:16,607 log 41944 6044 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-07-09 19:56:16,608 basehttp 41944 6044 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3195
+WARNING 2025-07-09 19:56:58,943 log 41944 6044 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-07-09 19:56:58,943 basehttp 41944 6044 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3195
+WARNING 2025-07-09 19:58:59,107 log 41944 6044 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-07-09 19:58:59,107 basehttp 41944 6044 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3195
+WARNING 2025-07-09 20:06:25,701 log 41944 34872 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-07-09 20:06:25,701 basehttp 41944 34872 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3195
+WARNING 2025-07-09 20:07:18,996 log 41944 34872 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-07-09 20:07:18,997 basehttp 41944 34872 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3195
+WARNING 2025-07-09 20:07:40,887 log 41944 34872 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-07-09 20:07:40,887 basehttp 41944 34872 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3195
+WARNING 2025-07-09 20:11:01,382 log 19420 38996 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-07-09 20:11:01,382 basehttp 19420 38996 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3195
+WARNING 2025-07-09 20:11:25,418 log 36804 40200 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-07-09 20:11:25,418 basehttp 36804 40200 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3195
+WARNING 2025-07-09 20:11:56,286 log 42444 41096 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-07-09 20:11:56,286 basehttp 42444 41096 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3195
+ERROR 2025-07-09 20:12:25,388 log 34448 26916 Internal Server Error: /start/
+Traceback (most recent call last):
+  File "E:\python\真正的python\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "E:\python\真正的python\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\python\真正的python\lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "E:\pycharm\django store\headhunter2\app01\views.py", line 124, in start
+    know = models.Main.objects.filter(id=item['questionPk']).knowledge.objects.all()
+AttributeError: 'QuerySet' object has no attribute 'knowledge'
+ERROR 2025-07-09 20:12:25,389 basehttp 34448 26916 "POST /start/?difficulty=easy HTTP/1.1" 500 81984
+WARNING 2025-07-09 20:12:25,402 log 34448 26916 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-07-09 20:12:25,403 basehttp 34448 26916 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3195
+WARNING 2025-07-09 20:12:33,223 log 39288 20352 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-07-09 20:12:33,223 basehttp 39288 20352 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3195
+WARNING 2025-07-09 20:14:02,135 log 23452 29184 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-07-09 20:14:02,135 basehttp 23452 29184 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3195
+ERROR 2025-07-09 20:15:19,822 log 38580 17672 Internal Server Error: /start/
+Traceback (most recent call last):
+  File "E:\pycharm\django store\headhunter2\app01\views.py", line 162, in start
+    x1_category += str(i.knowledge_pot) + " "
+TypeError: 'str' object is not callable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\python\真正的python\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "E:\python\真正的python\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\python\真正的python\lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "E:\pycharm\django store\headhunter2\app01\views.py", line 185, in start
+    logger.error(f"用户 {request.user.username} 加载挑战题目失败: {str(e)}", exc_info=True)
+TypeError: 'str' object is not callable
+ERROR 2025-07-09 20:15:19,823 basehttp 38580 17672 "POST /start/?difficulty=easy HTTP/1.1" 500 109881
+WARNING 2025-07-09 20:15:19,836 log 38580 17672 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-07-09 20:15:19,836 basehttp 38580 17672 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3195
+WARNING 2025-07-09 20:16:50,000 log 19388 24788 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-07-09 20:16:50,000 basehttp 19388 24788 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3195
+ERROR 2025-07-09 20:19:52,583 log 32468 12332 Internal Server Error: /start/
+Traceback (most recent call last):
+  File "E:\python\真正的python\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "E:\python\真正的python\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\python\真正的python\lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "E:\pycharm\django store\headhunter2\app01\views.py", line 127, in start
+    mes_obj = models.Message.objects.create(wrong=str000, message=request.user.pk)
+  File "E:\python\真正的python\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "E:\python\真正的python\lib\site-packages\django\db\models\query.py", line 656, in create
+    obj = self.model(**kwargs)
+  File "E:\python\真正的python\lib\site-packages\django\db\models\base.py", line 543, in __init__
+    _setattr(self, field.name, rel_obj)
+  File "E:\python\真正的python\lib\site-packages\django\db\models\fields\related_descriptors.py", line 369, in __set__
+    super().__set__(instance, value)
+  File "E:\python\真正的python\lib\site-packages\django\db\models\fields\related_descriptors.py", line 266, in __set__
+    raise ValueError(
+ValueError: Cannot assign "1": "Message.message" must be a "User" instance.
+ERROR 2025-07-09 20:19:52,584 basehttp 32468 12332 "POST /start/?difficulty=easy HTTP/1.1" 500 105323
+WARNING 2025-07-09 20:19:52,597 log 32468 12332 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-07-09 20:19:52,597 basehttp 32468 12332 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3195
+WARNING 2025-07-09 20:20:49,151 log 39384 36080 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-07-09 20:20:49,151 basehttp 39384 36080 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3195
+ERROR 2025-07-10 10:00:00,455 views 22404 25248 用户 wyc 主页渲染失败: 'Message' object has no attribute 'worry'
+Traceback (most recent call last):
+  File "E:\pycharm\django store\headhunter2\app01\views.py", line 39, in home
+    re_worry = models.Message.objects.filter(message_id=request.user.pk).first().worry
+AttributeError: 'Message' object has no attribute 'worry'
+WARNING 2025-07-10 10:00:00,601 log 22404 25248 Not Found: /favicon.ico
+WARNING 2025-07-10 10:00:00,601 basehttp 22404 25248 "GET /favicon.ico HTTP/1.1" 404 3084
+ERROR 2025-07-10 10:00:11,536 views 7364 25436 用户 wyc 主页渲染失败: 'Message' object has no attribute 'worry'
+Traceback (most recent call last):
+  File "E:\pycharm\django store\headhunter2\app01\views.py", line 39, in home
+    re_worry = models.Message.objects.filter(message_id=request.user.pk).first().worry.all()
+AttributeError: 'Message' object has no attribute 'worry'
+ERROR 2025-07-10 10:02:23,758 views 29396 16092 用户 wyc 主页渲染失败: 'str' object has no attribute 'all'
+Traceback (most recent call last):
+  File "E:\pycharm\django store\headhunter2\app01\views.py", line 39, in home
+    re_wrong = models.Message.objects.filter(message_id=request.user.pk).first().wrong.all()
+AttributeError: 'str' object has no attribute 'all'
+ERROR 2025-07-10 10:27:00,677 log 24500 10040 Internal Server Error: /start/
+Traceback (most recent call last):
+  File "E:\python\真正的python\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "E:\python\真正的python\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\python\真正的python\lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "E:\pycharm\django store\headhunter2\app01\views.py", line 133, in start
+    know = models.Main.objects.filter(id=item['questionPk']).first().knowledge.all()
+AttributeError: 'NoneType' object has no attribute 'knowledge'
+ERROR 2025-07-10 10:27:00,677 basehttp 24500 10040 "POST /start/?difficulty=easy HTTP/1.1" 500 82961
+ERROR 2025-07-10 10:28:52,033 log 4084 16724 Internal Server Error: /start/
+Traceback (most recent call last):
+  File "E:\python\真正的python\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "E:\python\真正的python\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\python\真正的python\lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "E:\pycharm\django store\headhunter2\app01\views.py", line 134, in start
+    know = models.Main.objects.filter(id=item['questionPk']).first().knowledge.all()
+AttributeError: 'NoneType' object has no attribute 'knowledge'
+ERROR 2025-07-10 10:28:52,034 basehttp 4084 16724 "POST /start/?difficulty=easy HTTP/1.1" 500 82961
+WARNING 2025-07-10 10:29:07,365 log 2456 28180 Not Found: /favicon.ico
+WARNING 2025-07-10 10:29:07,365 basehttp 2456 28180 "GET /favicon.ico HTTP/1.1" 404 3084
+ERROR 2025-07-10 10:30:17,329 log 2456 28180 Internal Server Error: /start/
+Traceback (most recent call last):
+  File "E:\python\真正的python\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "E:\python\真正的python\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\python\真正的python\lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "E:\pycharm\django store\headhunter2\app01\views.py", line 143, in start
+    mes_obj.save()
+AttributeError: 'int' object has no attribute 'save'
+ERROR 2025-07-10 10:30:17,330 basehttp 2456 28180 "POST /start/?difficulty=hard HTTP/1.1" 500 84575
+WARNING 2025-07-10 10:39:08,873 log 22704 19644 Not Found: /favicon.ico
+WARNING 2025-07-10 10:39:08,873 basehttp 22704 19644 "GET /favicon.ico HTTP/1.1" 404 3084
+WARNING 2025-07-10 10:39:10,459 log 22704 19644 Not Found: /home/用户中心.html
+WARNING 2025-07-10 10:39:10,459 basehttp 22704 19644 "GET /home/%E7%94%A8%E6%88%B7%E4%B8%AD%E5%BF%83.html HTTP/1.1" 404 3141
+WARNING 2025-07-10 10:43:34,598 log 22704 19644 Not Found: /home/使用历史.html
+WARNING 2025-07-10 10:43:34,598 basehttp 22704 19644 "GET /home/%E4%BD%BF%E7%94%A8%E5%8E%86%E5%8F%B2.html HTTP/1.1" 404 3141
+WARNING 2025-07-10 12:52:18,819 log 28184 12156 Not Found: /favicon.ico
+WARNING 2025-07-10 12:52:18,819 basehttp 28184 12156 "GET /favicon.ico HTTP/1.1" 404 3192
+WARNING 2025-07-10 12:52:21,260 log 28184 12156 Not Found: /home/start.html
+WARNING 2025-07-10 12:52:21,260 basehttp 28184 12156 "GET /home/start.html HTTP/1.1" 404 3204
+WARNING 2025-07-10 12:53:25,547 log 28184 4752 Not Found: /favicon.ico
+WARNING 2025-07-10 12:53:25,548 basehttp 28184 4752 "GET /favicon.ico HTTP/1.1" 404 3192
+WARNING 2025-07-10 12:53:34,816 log 28184 19148 Not Found: /favicon.ico
+WARNING 2025-07-10 12:53:34,816 basehttp 28184 19148 "GET /favicon.ico HTTP/1.1" 404 3192
+WARNING 2025-07-10 12:58:47,462 log 4884 7340 Not Found: /favicon.ico
+WARNING 2025-07-10 12:58:47,462 basehttp 4884 7340 "GET /favicon.ico HTTP/1.1" 404 3192
+WARNING 2025-07-10 13:04:40,874 log 21228 2784 Not Found: /history/index.html
+WARNING 2025-07-10 13:04:40,874 basehttp 21228 2784 "GET /history/index.html HTTP/1.1" 404 3213
+WARNING 2025-07-10 13:05:08,998 log 21228 2784 Not Found: /history/index.html
+WARNING 2025-07-10 13:05:08,999 basehttp 21228 2784 "GET /history/index.html HTTP/1.1" 404 3213
+WARNING 2025-07-10 13:05:10,615 log 21228 2784 Not Found: /history/index.html
+WARNING 2025-07-10 13:05:10,615 basehttp 21228 2784 "GET /history/index.html HTTP/1.1" 404 3213
+WARNING 2025-07-10 13:05:25,288 log 3392 27776 Not Found: /favicon.ico
+WARNING 2025-07-10 13:05:25,289 basehttp 3392 27776 "GET /favicon.ico HTTP/1.1" 404 3192
+WARNING 2025-07-10 13:05:27,680 log 3392 27776 Not Found: /history/index.html
+WARNING 2025-07-10 13:05:27,680 basehttp 3392 27776 "GET /history/index.html HTTP/1.1" 404 3213
+WARNING 2025-07-10 13:05:33,547 log 3392 27776 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-07-10 13:05:33,548 basehttp 3392 27776 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3303
+WARNING 2025-07-10 13:06:12,336 log 3392 27776 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-07-10 13:06:12,336 basehttp 3392 27776 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3303
+WARNING 2025-07-10 13:06:13,086 log 3392 27776 Not Found: /history/index.html
+WARNING 2025-07-10 13:06:13,087 basehttp 3392 27776 "GET /history/index.html HTTP/1.1" 404 3213
+WARNING 2025-07-10 13:06:13,106 log 3392 27776 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-07-10 13:06:13,106 basehttp 3392 27776 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3303
+WARNING 2025-07-10 13:06:46,201 log 3392 27776 Not Found: /history/index.html
+WARNING 2025-07-10 13:06:46,201 basehttp 3392 27776 "GET /history/index.html HTTP/1.1" 404 3213
+WARNING 2025-07-10 13:06:46,214 log 3392 27776 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-07-10 13:06:46,214 basehttp 3392 27776 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3303
+WARNING 2025-07-10 13:06:46,938 log 3392 27776 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-07-10 13:06:46,938 basehttp 3392 27776 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3303
+WARNING 2025-07-10 13:06:46,945 log 3392 27776 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-07-10 13:06:46,945 basehttp 3392 27776 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3303
+WARNING 2025-07-10 13:06:48,162 log 3392 27776 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-07-10 13:06:48,163 basehttp 3392 27776 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3303
+WARNING 2025-07-10 13:06:48,909 log 3392 27776 Not Found: /history/home/
+WARNING 2025-07-10 13:06:48,912 log 3392 28560 Not Found: /history/index.html
+WARNING 2025-07-10 13:06:48,912 basehttp 3392 28560 "GET /history/index.html HTTP/1.1" 404 3213
+WARNING 2025-07-10 13:06:48,930 log 3392 28560 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-07-10 13:06:48,930 basehttp 3392 28560 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3303
+WARNING 2025-07-10 13:07:26,853 log 3392 28560 Not Found: /history/index.html
+WARNING 2025-07-10 13:07:26,854 basehttp 3392 28560 "GET /history/index.html HTTP/1.1" 404 3213
+WARNING 2025-07-10 13:07:26,865 log 3392 28560 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-07-10 13:07:26,865 basehttp 3392 28560 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3303
+WARNING 2025-07-10 13:07:27,804 log 3392 28560 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-07-10 13:07:27,804 basehttp 3392 28560 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3303
+WARNING 2025-07-10 13:07:27,818 log 3392 28560 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-07-10 13:07:27,818 basehttp 3392 28560 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3303
+WARNING 2025-07-10 13:07:28,413 log 3392 28560 Not Found: /history/home/
+WARNING 2025-07-10 13:07:28,415 log 3392 12448 Not Found: /history/index.html
+WARNING 2025-07-10 13:07:28,416 basehttp 3392 12448 "GET /history/index.html HTTP/1.1" 404 3213
+WARNING 2025-07-10 13:07:28,431 log 3392 12448 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-07-10 13:07:28,432 basehttp 3392 12448 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3303
+WARNING 2025-07-10 13:07:54,177 log 3392 6420 Not Found: /favicon.ico
+WARNING 2025-07-10 13:07:54,177 basehttp 3392 6420 "GET /favicon.ico HTTP/1.1" 404 3192
+WARNING 2025-07-10 13:14:46,478 log 9476 26964 Not Found: /favicon.ico
+WARNING 2025-07-10 13:14:46,478 basehttp 9476 26964 "GET /favicon.ico HTTP/1.1" 404 3192
+WARNING 2025-07-10 13:16:23,179 log 3976 27184 Not Found: /favicon.ico
+WARNING 2025-07-10 13:16:23,180 basehttp 3976 27184 "GET /favicon.ico HTTP/1.1" 404 3192
+ERROR 2025-07-10 13:22:16,045 log 14264 23576 Internal Server Error: /start/
+Traceback (most recent call last):
+  File "E:\python\真正的python\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "E:\python\真正的python\lib\site-packages\django\db\backends\mysql\base.py", line 75, in execute
+    return self.cursor.execute(query, args)
+  File "E:\python\真正的python\lib\site-packages\MySQLdb\cursors.py", line 179, in execute
+    res = self._query(mogrified_query)
+  File "E:\python\真正的python\lib\site-packages\MySQLdb\cursors.py", line 330, in _query
+    db.query(q)
+  File "E:\python\真正的python\lib\site-packages\MySQLdb\connections.py", line 261, in query
+    _mysql.connection.query(self, query)
+MySQLdb.OperationalError: (1241, 'Operand should contain 1 column(s)')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "E:\python\真正的python\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "E:\python\真正的python\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\python\真正的python\lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "E:\pycharm\django store\headhunter2\app01\views.py", line 129, in start
+    history_obj = models.History.objects.create(name_user=request.user.username, user_question=item['questionText'], user_choice=item['userChoice'], question_answer=item['correctAnswer'], question_detail=models.Main.objects.filter(id=item['questionPk']).first().detail, question_pk=models.Main.objects.filter(id=item['questionPk']).first().knowledge.all())
+  File "E:\python\真正的python\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "E:\python\真正的python\lib\site-packages\django\db\models\query.py", line 658, in create
+    obj.save(force_insert=True, using=self.db)
+  File "E:\python\真正的python\lib\site-packages\django\db\models\base.py", line 814, in save
+    self.save_base(
+  File "E:\python\真正的python\lib\site-packages\django\db\models\base.py", line 877, in save_base
+    updated = self._save_table(
+  File "E:\python\真正的python\lib\site-packages\django\db\models\base.py", line 1020, in _save_table
+    results = self._do_insert(
+  File "E:\python\真正的python\lib\site-packages\django\db\models\base.py", line 1061, in _do_insert
+    return manager._insert(
+  File "E:\python\真正的python\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "E:\python\真正的python\lib\site-packages\django\db\models\query.py", line 1805, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "E:\python\真正的python\lib\site-packages\django\db\models\sql\compiler.py", line 1822, in execute_sql
+    cursor.execute(sql, params)
+  File "E:\python\真正的python\lib\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+  File "E:\python\真正的python\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "E:\python\真正的python\lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "E:\python\真正的python\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "E:\python\真正的python\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "E:\python\真正的python\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "E:\python\真正的python\lib\site-packages\django\db\backends\mysql\base.py", line 75, in execute
+    return self.cursor.execute(query, args)
+  File "E:\python\真正的python\lib\site-packages\MySQLdb\cursors.py", line 179, in execute
+    res = self._query(mogrified_query)
+  File "E:\python\真正的python\lib\site-packages\MySQLdb\cursors.py", line 330, in _query
+    db.query(q)
+  File "E:\python\真正的python\lib\site-packages\MySQLdb\connections.py", line 261, in query
+    _mysql.connection.query(self, query)
+django.db.utils.OperationalError: (1241, 'Operand should contain 1 column(s)')
+ERROR 2025-07-10 13:22:16,046 basehttp 14264 23576 "POST /start/?difficulty=easy HTTP/1.1" 500 199941
+ERROR 2025-07-10 13:26:42,210 log 5336 25752 Internal Server Error: /start/
+Traceback (most recent call last):
+  File "E:\python\真正的python\lib\site-packages\django\db\models\sql\query.py", line 2162, in add_fields
+    join_info = self.setup_joins(
+  File "E:\python\真正的python\lib\site-packages\django\db\models\sql\query.py", line 1824, in setup_joins
+    path, final_field, targets, rest = self.names_to_path(
+  File "E:\python\真正的python\lib\site-packages\django\db\models\sql\query.py", line 1725, in names_to_path
+    raise FieldError(
+django.core.exceptions.FieldError: Cannot resolve keyword '' into field. Choices are: id, knowledge_pot, main
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\python\真正的python\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "E:\python\真正的python\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\python\真正的python\lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "E:\pycharm\django store\headhunter2\app01\views.py", line 129, in start
+    history_obj = models.History.objects.create(name_user=request.user.username, user_question=item['questionText'], user_choice=item['userChoice'], question_answer=item['correctAnswer'], question_detail=models.Main.objects.filter(id=item['questionPk']).first().detail, question_pk=models.Main.objects.filter(id=item['questionPk']).first().knowledge.all().values_list(''))
+  File "E:\python\真正的python\lib\site-packages\django\db\models\query.py", line 1345, in values_list
+    clone = self._values(*_fields, **expressions)
+  File "E:\python\真正的python\lib\site-packages\django\db\models\query.py", line 1308, in _values
+    clone.query.set_values(fields)
+  File "E:\python\真正的python\lib\site-packages\django\db\models\sql\query.py", line 2463, in set_values
+    self.add_fields(field_names, True)
+  File "E:\python\真正的python\lib\site-packages\django\db\models\sql\query.py", line 2195, in add_fields
+    raise FieldError(
+django.core.exceptions.FieldError: Cannot resolve keyword '' into field. Choices are: id, knowledge_pot, main
+ERROR 2025-07-10 13:26:42,211 basehttp 5336 25752 "POST /start/?difficulty=easy HTTP/1.1" 500 118028
+ERROR 2025-07-10 13:27:51,675 log 15844 11532 Internal Server Error: /start/
+Traceback (most recent call last):
+  File "E:\python\真正的python\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "E:\python\真正的python\lib\site-packages\django\db\backends\mysql\base.py", line 75, in execute
+    return self.cursor.execute(query, args)
+  File "E:\python\真正的python\lib\site-packages\MySQLdb\cursors.py", line 179, in execute
+    res = self._query(mogrified_query)
+  File "E:\python\真正的python\lib\site-packages\MySQLdb\cursors.py", line 330, in _query
+    db.query(q)
+  File "E:\python\真正的python\lib\site-packages\MySQLdb\connections.py", line 261, in query
+    _mysql.connection.query(self, query)
+MySQLdb.OperationalError: (1242, 'Subquery returns more than 1 row')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "E:\python\真正的python\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "E:\python\真正的python\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\python\真正的python\lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "E:\pycharm\django store\headhunter2\app01\views.py", line 129, in start
+    history_obj = models.History.objects.create(name_user=request.user.username, user_question=item['questionText'], user_choice=item['userChoice'], question_answer=item['correctAnswer'], question_detail=models.Main.objects.filter(id=item['questionPk']).first().detail, question_pk=models.Main.objects.filter(id=item['questionPk']).first().knowledge.all().values_list('knowledge_pot'))
+  File "E:\python\真正的python\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "E:\python\真正的python\lib\site-packages\django\db\models\query.py", line 658, in create
+    obj.save(force_insert=True, using=self.db)
+  File "E:\python\真正的python\lib\site-packages\django\db\models\base.py", line 814, in save
+    self.save_base(
+  File "E:\python\真正的python\lib\site-packages\django\db\models\base.py", line 877, in save_base
+    updated = self._save_table(
+  File "E:\python\真正的python\lib\site-packages\django\db\models\base.py", line 1020, in _save_table
+    results = self._do_insert(
+  File "E:\python\真正的python\lib\site-packages\django\db\models\base.py", line 1061, in _do_insert
+    return manager._insert(
+  File "E:\python\真正的python\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "E:\python\真正的python\lib\site-packages\django\db\models\query.py", line 1805, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "E:\python\真正的python\lib\site-packages\django\db\models\sql\compiler.py", line 1822, in execute_sql
+    cursor.execute(sql, params)
+  File "E:\python\真正的python\lib\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+  File "E:\python\真正的python\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "E:\python\真正的python\lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "E:\python\真正的python\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "E:\python\真正的python\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "E:\python\真正的python\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "E:\python\真正的python\lib\site-packages\django\db\backends\mysql\base.py", line 75, in execute
+    return self.cursor.execute(query, args)
+  File "E:\python\真正的python\lib\site-packages\MySQLdb\cursors.py", line 179, in execute
+    res = self._query(mogrified_query)
+  File "E:\python\真正的python\lib\site-packages\MySQLdb\cursors.py", line 330, in _query
+    db.query(q)
+  File "E:\python\真正的python\lib\site-packages\MySQLdb\connections.py", line 261, in query
+    _mysql.connection.query(self, query)
+django.db.utils.OperationalError: (1242, 'Subquery returns more than 1 row')
+ERROR 2025-07-10 13:27:51,677 basehttp 15844 11532 "POST /start/?difficulty=easy HTTP/1.1" 500 201465
+WARNING 2025-07-10 13:31:57,609 log 2652 8564 Not Found: /favicon.ico
+WARNING 2025-07-10 13:31:57,610 basehttp 2652 8564 "GET /favicon.ico HTTP/1.1" 404 3192
+ERROR 2025-07-10 13:41:02,157 log 19948 516 Internal Server Error: /history/
+Traceback (most recent call last):
+  File "E:\python\真正的python\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "E:\python\真正的python\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\python\真正的python\lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "E:\pycharm\django store\headhunter2\app01\views.py", line 276, in history
+    for j in json.loads(i.question_pk):
+  File "E:\python\真正的python\lib\json\__init__.py", line 357, in loads
+    return _default_decoder.decode(s)
+  File "E:\python\真正的python\lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "E:\python\真正的python\lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 2 (char 1)
+ERROR 2025-07-10 13:41:02,158 basehttp 19948 516 "GET /history/ HTTP/1.1" 500 83944
+ERROR 2025-07-10 13:41:54,559 log 22916 3352 Internal Server Error: /history/
+Traceback (most recent call last):
+  File "E:\python\真正的python\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "E:\python\真正的python\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\python\真正的python\lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "E:\pycharm\django store\headhunter2\app01\views.py", line 276, in history
+    print(json.loads(i.question_pk))
+  File "E:\python\真正的python\lib\json\__init__.py", line 357, in loads
+    return _default_decoder.decode(s)
+  File "E:\python\真正的python\lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "E:\python\真正的python\lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 2 (char 1)
+ERROR 2025-07-10 13:41:54,560 basehttp 22916 3352 "GET /history/ HTTP/1.1" 500 84105
+ERROR 2025-07-10 13:44:55,494 log 27020 27512 Internal Server Error: /history/
+Traceback (most recent call last):
+  File "E:\python\真正的python\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "E:\python\真正的python\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\python\真正的python\lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "E:\pycharm\django store\headhunter2\app01\views.py", line 276, in history
+    print(json.load(i.question_pk))
+  File "E:\python\真正的python\lib\json\__init__.py", line 293, in load
+    return loads(fp.read(),
+AttributeError: 'str' object has no attribute 'read'
+ERROR 2025-07-10 13:44:55,494 basehttp 27020 27512 "GET /history/ HTTP/1.1" 500 77192
+ERROR 2025-07-10 13:45:12,567 log 26180 27872 Internal Server Error: /history/
+Traceback (most recent call last):
+  File "E:\python\真正的python\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "E:\python\真正的python\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\python\真正的python\lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "E:\pycharm\django store\headhunter2\app01\views.py", line 276, in history
+    print(json.loads(i.question_pk))
+  File "E:\python\真正的python\lib\json\__init__.py", line 357, in loads
+    return _default_decoder.decode(s)
+  File "E:\python\真正的python\lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "E:\python\真正的python\lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 2 (char 1)
+ERROR 2025-07-10 13:45:12,568 basehttp 26180 27872 "GET /history/ HTTP/1.1" 500 84105
+ERROR 2025-07-10 13:47:03,068 log 4376 2328 Internal Server Error: /history/
+Traceback (most recent call last):
+  File "E:\python\真正的python\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "E:\python\真正的python\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\python\真正的python\lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "E:\pycharm\django store\headhunter2\app01\views.py", line 277, in history
+    print(json.loads(cleaned_str))
+  File "E:\python\真正的python\lib\json\__init__.py", line 357, in loads
+    return _default_decoder.decode(s)
+  File "E:\python\真正的python\lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "E:\python\真正的python\lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 8 (char 7)
+ERROR 2025-07-10 13:47:03,069 basehttp 4376 2328 "GET /history/ HTTP/1.1" 500 84454
+ERROR 2025-07-10 13:48:00,531 log 18180 14980 Internal Server Error: /history/
+Traceback (most recent call last):
+  File "E:\python\真正的python\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "E:\python\真正的python\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\python\真正的python\lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "E:\pycharm\django store\headhunter2\app01\views.py", line 280, in history
+    print(json.loads(pure_list))
+  File "E:\python\真正的python\lib\json\__init__.py", line 341, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+TypeError: the JSON object must be str, bytes or bytearray, not list
+ERROR 2025-07-10 13:48:00,531 basehttp 18180 14980 "GET /history/ HTTP/1.1" 500 77669
+ERROR 2025-07-10 13:59:47,203 log 11964 4188 Internal Server Error: /history/
+Traceback (most recent call last):
+  File "E:\python\真正的python\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "E:\python\真正的python\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\python\真正的python\lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "E:\pycharm\django store\headhunter2\app01\views.py", line 284, in history
+    list_know = list(set((list_know)))
+TypeError: unhashable type: 'list'
+ERROR 2025-07-10 13:59:47,204 basehttp 11964 4188 "GET /history/ HTTP/1.1" 500 72758
+ERROR 2025-07-10 14:00:05,880 log 3240 9860 Internal Server Error: /history/
+Traceback (most recent call last):
+  File "E:\python\真正的python\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "E:\python\真正的python\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\python\真正的python\lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "E:\pycharm\django store\headhunter2\app01\views.py", line 284, in history
+    list_know = list(set(list_know))
+TypeError: unhashable type: 'list'
+ERROR 2025-07-10 14:00:05,881 basehttp 3240 9860 "GET /history/ HTTP/1.1" 500 72754
+ERROR 2025-07-10 14:18:43,104 views 23536 19644 用户 wyc 加载挑战题目失败: 'QuerySet' object has no attribute 'knowledge_pot'
+Traceback (most recent call last):
+  File "E:\pycharm\django store\headhunter2\app01\views.py", line 160, in start
+    dic = models.Knowledge.objects.all().knowledge_pot
+AttributeError: 'QuerySet' object has no attribute 'knowledge_pot'
+ERROR 2025-07-10 14:18:54,144 views 544 8888 用户 wyc 加载挑战题目失败: 'Manager' object has no attribute 'knowledge_pot'
+Traceback (most recent call last):
+  File "E:\pycharm\django store\headhunter2\app01\views.py", line 160, in start
+    dic = models.Knowledge.objects.knowledge_pot
+AttributeError: 'Manager' object has no attribute 'knowledge_pot'
+ERROR 2025-07-10 14:40:13,532 views 12516 20956 用户 wyc 加载挑战题目失败: 'list' object has no attribute 'split'
+Traceback (most recent call last):
+  File "E:\pycharm\django store\headhunter2\app01\views.py", line 201, in start
+    for tag in error_tags_str.split('*'):
+AttributeError: 'list' object has no attribute 'split'
+WARNING 2025-07-10 14:46:37,471 log 13984 13760 Not Found: /favicon.ico
+WARNING 2025-07-10 14:46:37,471 basehttp 13984 13760 "GET /favicon.ico HTTP/1.1" 404 3192
+WARNING 2025-07-10 14:47:09,483 log 13984 28092 Not Found: /favicon.ico
+WARNING 2025-07-10 14:47:09,483 basehttp 13984 28092 "GET /favicon.ico HTTP/1.1" 404 3192
+WARNING 2025-07-10 14:51:14,934 log 27884 25356 Not Found: /favicon.ico
+WARNING 2025-07-10 14:51:14,934 basehttp 27884 25356 "GET /favicon.ico HTTP/1.1" 404 3192
+WARNING 2025-07-10 14:59:46,515 log 11192 11756 Not Found: /favicon.ico
+WARNING 2025-07-10 14:59:46,516 basehttp 11192 11756 "GET /favicon.ico HTTP/1.1" 404 3192
