@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>编程问答系统 - 发布新帖</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+        }
+
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+        }
+
+        header {
+            background-color: #1890ff;
+            color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .logo span {
+            font-size: 1rem;
+            font-weight: normal;
+            margin-left: 0.5rem;
+            opacity: 0.8;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+
+        nav ul li a:hover {
+            opacity: 0.8;
+        }
+
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: white;
+            color: #1890ff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        main {
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .post-form-container {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .post-form-container h2 {
+            margin-bottom: 1.5rem;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #1890ff;
+        }
+
+        .form-group textarea {
+            min-height: 200px;
+            resize: vertical;
+        }
+
+        .form-group select {
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+            background-color: white;
+        }
+
+        .form-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn-cancel {
+            background-color: #f0f2f5;
+            color: #333;
+        }
+
+        .btn-cancel:hover {
+            background-color: #e6e8eb;
+        }
+
+        .btn-submit {
+            background-color: #1890ff;
+            color: white;
+        }
+
+        .btn-submit:hover {
+            background-color: #096dd9;
+        }
+
+        /* 返回按钮样式 */
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            margin-right: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .back-btn:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* 图标样式 */
+        .icon {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+
+        /* 添加 footer 样式 */
+        footer {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <!-- 返回到活跃社区 -->
+        <div class="back-btn" onclick="window.location.href='./活跃社区.html'">
+            <svg class="icon" viewBox="0 0 24 24">
+                <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" />
+            </svg>
+            返回
+        </div>
+        <div class="logo">
+            编程问答系统 <span>问答之间，编程更简单</span>
+        </div>
+        <nav>
+            <ul>
+                <!-- 导行栏跳转 -->
+                <li><a href="./index.html">首页</a></li>
+                <li><a href="./热门问题.html">热门问题</a></li>
+                <li><a href="./用户中心.html">用户中心</a></li>
+                <li><a href="./活跃社区.html">活跃社区</a></li>
+            </ul>
+        </nav>
+        <div class="user-avatar" id="user-avatar">
+            <span>用户</span>
+        </div>
+    </header>
+
+    <main>
+        <div class="post-form-container">
+            <h2>发布新帖</h2>
+            <form id="post-form">
+                <div class="form-group">
+                    <label for="post-title">帖子标题</label>
+                    <input type="text" id="post-title" placeholder="请输入帖子标题" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="post-category">分类</label>
+                    <select id="post-category">
+                        <option value="python">Python</option>
+                        <option value="javascript">JavaScript</option>
+                        <option value="java">Java</option>
+                        <option value="csharp">C#</option>
+                        <option value="php">PHP</option>
+                        <option value="other">其他</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="post-content">帖子内容</label>
+                    <textarea id="post-content" placeholder="请输入帖子内容，支持Markdown语法..." required></textarea>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn btn-cancel" onclick="history.back()">取消</button>
+                    <button type="submit" class="btn btn-submit">发布帖子</button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2023 编程问答系统 - 问答之间，编程更简单</p>
+    </footer>
+
+    <script>
+        // 从登录页跳转过来的处理
+        document.addEventListener('DOMContentLoaded', function () {
+            // 检查是否是从登录页跳转过来的
+            const urlParams = new URLSearchParams(window.location.search);
+            const loggedIn = urlParams.get('loggedIn');
+
+            if (loggedIn === 'true') {
+                // 显示欢迎消息
+                const username = urlParams.get('username') || '用户';
+                document.getElementById('user-avatar').textContent = username.charAt(0).toUpperCase();
+            }
+
+            // 帖子表单提交处理
+            const postForm = document.getElementById('post-form');
+            postForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                // 获取表单数据
+                const title = document.getElementById('post-title').value;
+                const category = document.getElementById('post-category').value;
+                const content = document.getElementById('post-content').value;
+
+                // 这里应该有AJAX请求发送数据到服务器
+                // 模拟提交成功
+                setTimeout(function () {
+                    alert('帖子发布成功！');
+                    // 返回活跃社区页面
+                    window.location.href = 'active-community.html';
+                }, 1000);
+            });
+        });
+
+        // 用户头像点击事件
+        document.getElementById('user-avatar').addEventListener('click', function () {
+            // 跳转到用户中心
+            window.location.href = './用户中心.html';
+        });
+    </script>
+</body>
+
+</html>

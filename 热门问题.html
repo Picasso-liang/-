@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>编程热门选择题</title>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <style>
+        /* 基础样式 */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f8fafc;
+            color: #1e293b;
+        }
+        /* 返回键样式 */
+       .back-btn {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #3b82f6;
+            text-decoration: none;
+            font-size: 14px;
+            padding: 6px 10px;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+       .back-btn:hover {
+            background-color: #eff6ff;
+        }
+       .back-btn i {
+            margin-right: 5px;
+        }
+
+        h1 {
+            color: #3b82f6;
+            text-align: center;
+            margin: 30px 0;
+            font-weight: 600;
+        }
+
+        /* 标签容器 */
+       .tags-wrapper {
+            border-bottom: 1px solid #e2e8f0;
+            padding: 10px 0;
+            margin-bottom: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+       .tag-btn {
+            padding: 8px 18px;
+            border: 1px solid #dbeafe;
+            border-radius: 20px;
+            background: white;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+       .tag-btn:hover {
+            border-color: #93c5fd;
+            color: #2563eb;
+        }
+       .tag-btn.active {
+            background-color: #3b82f6;
+            color: white;
+            border-color: #3b82f6;
+        }
+
+        /* 题目容器 */
+       .questions-wrapper {
+            display: none;
+        }
+       .questions-wrapper.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+       .section-title {
+            color: #1e40af;
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+            border-left: 4px solid #3b82f6;
+            padding-left: 10px;
+        }
+       .question-card {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+       .question-text {
+            font-weight: 500;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+       .options {
+            margin-bottom: 15px;
+        }
+       .option {
+            padding: 8px 10px;
+            margin-bottom: 8px;
+            border: 1px solid #e2e8f0;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+       .option:hover {
+            background-color: #f1f5f9;
+        }
+       .answer解析 {
+            padding: 15px;
+            border-radius: 6px;
+            background-color: #f0fdf4;
+            border: 1px solid #dcfce7;
+            display: none;
+        }
+       .answer解析.visible {
+            display: block;
+        }
+       .answer-label {
+            font-weight: 600;
+            color: #166534;
+            margin-bottom: 5px;
+            display: block;
+        }
+       .show-answer {
+            background-color: #3b82f6;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+       .show-answer:hover {
+            background-color: #2563eb;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <!-- 左上角返回键 返回到首页-->
+    <a href="./index.html" class="back-btn">
+        <i class="fa fa-arrow-left"></i> 返回
+    </a >
+
+    <h1>编程热门选择题 <i class="fa fa-code"></i></h1>
+
+    <!-- 标签切换区 -->
+    <div class="tags-wrapper">
+        <div class="tag-btn active" data-target="algorithm">算法</div>
+        <div class="tag-btn" data-target="cpp">C++</div>
+        <div class="tag-btn" data-target="python">Python</div>
+        <div class="tag-btn" data-target="java">Java</div>
+    </div>
+
+    <!-- 算法题目区 -->
+    <div class="questions-wrapper active" id="algorithm">
+        <h2 class="section-title">算法热门选择题</h2>
+        
+        <div class="question-card">
+            <p class="question-text">1. 以下哪种算法最适合求解无向图的最小生成树问题？</p >
+            <div class="options">
+                <div class="option">A. Dijkstra算法</div>
+                <div class="option">B. Kruskal算法</div>
+                <div class="option">C. Bellman-Ford算法</div>
+                <div class="option">D. 快速排序算法</div>
+            </div>
+            <button class="show-answer">查看答案和解析</button>
+            <div class="answer解析">
+                <span class="answer-label">正确答案：B</span>
+                <p>解析：Kruskal算法通过排序边并按权重从小到大添加（避圈法），专门用于求解无向图的最小生成树。Dijkstra和Bellman-Ford用于最短路径问题，快速排序是排序算法，与图无关。</p >
+            </div>
+        </div>
+
+        <div class="question-card">
+            <p class="question-text">2. 二分查找算法的时间复杂度是？</p >
+            <div class="options">
+                <div class="option">A. O(n)</div>
+                <div class="option">B. O(n²)</div>
+                <div class="option">C. O(log n)</div>
+                <div class="option">D. O(n log n)</div>
+            </div>
+            <button class="show-answer">查看答案和解析</button>
+            <div class="answer解析">
+                <span class="answer-label">正确答案：C</span>
+                <p>解析：二分查找每次将搜索范围缩小一半，最坏情况下需要log₂n次比较，因此时间复杂度为O(log n)。适用于有序数组的查找。</p >
+            </div>
+        </div>
+    </div>
+
+    <!-- C++题目区 -->
+    <div class="questions-wrapper" id="cpp">
+        <h2 class="section-title">C++热门选择题</h2>
+        
+        <div class="question-card">
+            <p class="question-text">1. 以下关于C++中指针和引用的说法，正确的是？</p >
+            <div class="options">
+                <div class="option">A. 指针可以为空，引用不能为空</div>
+                <div class="option">B. 指针可以被重新赋值，引用也可以</div>
+                <div class="option">C. 指针和引用都需要手动释放内存</div>
+                <div class="option">D. 指针和引用的大小相同</div>
+            </div>
+            <button class="show-answer">查看答案和解析</button>
+            <div class="answer解析">
+                <span class="answer-label">正确答案：A</span>
+                <p>解析：引用必须在定义时初始化且不能指向空值，而指针可以为空；引用一旦初始化就不能改变指向的对象，指针可以重新赋值；引用本身不分配内存，无需手动释放；指针大小通常是4或8字节，引用的大小取决于所指向对象的类型。</p >
+            </div>
+        </div>
+
+        <div class="question-card">
+            <p class="question-text">2. C++中，下列哪个关键字用于定义常量？</p >
+            <div class="options">
+                <div class="option">A. static</div>
+                <div class="option">B. const</div>
+                <div class="option">C. final</div>
+                <div class="option">D. volatile</div>
+            </div>
+            <button class="show-answer">查看答案和解析</button>
+            <div class="answer解析">
+                <span class="answer-label">正确答案：B</span>
+                <p>解析：const用于定义常量，被修饰的变量值不能被修改；static用于修饰静态变量或函数；final用于限制继承或重写（C++11后）；volatile用于提示编译器变量可能被意外修改，避免优化。</p >
+            </div>
+        </div>
+    </div>
+
+    <!-- Python题目区 -->
+    <div class="questions-wrapper" id="python">
+        <h2 class="section-title">Python热门选择题</h2>
+        
+        <div class="question-card">
+            <p class="question-text">1. Python中，以下哪个不是可变数据类型？</p >
+            <div class="options">
+                <div class="option">A. list</div>
+                <div class="option">B. dict</div>
+                <div class="option">C. str</div>
+                <div class="option">D. set</div>
+            </div>
+            <button class="show-answer">查看答案和解析</button>
+            <div class="answer解析">
+                <span class="answer-label">正确答案：C</span>
+                <p>解析：Python中str（字符串）是不可变类型，一旦创建不能修改其内部元素；list（列表）、dict（字典）、set（集合）是可变类型，可直接修改内部元素。</p >
+            </div>
+        </div>
+
+        <div class="question-card">
+            <p class="question-text">2. 以下哪个语句可以正确导入math模块并使用其sqrt函数？</p >
+            <div class="options">
+                <div class="option">A. import math.sqrt</div>
+                <div class="option">B. from math import sqrt</div>
+                <div class="option">C. include math</div>
+                <div class="option">D. use math.sqrt</div>
+            </div>
+            <button class="show-answer">查看答案和解析</button>
+            <div class="answer解析">
+                <span class="answer-label">正确答案：B</span>
+                <p>解析：Python中导入模块的语法有两种：①import 模块名（使用时需加模块名前缀，如math.sqrt()）；②from 模块名 import 函数名（可直接使用函数名，如sqrt()）。A语法错误，C、D不是Python的导入关键字。</p >
+            </div>
+        </div>
+    </div>
+
+    <!-- Java题目区 -->
+    <div class="questions-wrapper" id="java">
+        <h2 class="section-title">Java热门选择题</h2>
+        
+        <div class="question-card">
+            <p class="question-text">1. Java中，以下关于接口和抽象类的说法，错误的是？</p >
+            <div class="options">
+                <div class="option">A. 接口中只能有抽象方法，抽象类中可以有非抽象方法</div>
+                <div class="option">B. 一个类可以实现多个接口，但只能继承一个抽象类</div>
+                <div class="option">C. 接口和抽象类都不能被实例化</div>
+                <div class="option">D. 接口中的方法默认是private的</div>
+            </div>
+            <button class="show-answer">查看答案和解析</button>
+            <div class="answer解析">
+                <span class="answer-label">正确答案：D</span>
+                <p>解析：Java接口中的方法默认是public abstract的（Java 8后可有默认方法），不能是private；抽象类可以有private方法。其余选项均为正确表述。</p >
+            </div>
+        </div>
+
+        <div class="question-card">
+            <p class="question-text">2. Java中，以下哪个关键字用于抛出异常？</p >
+            <div class="options">
+                <div class="option">A. try</div>
+                <div class="option">B. catch</div>
+                <div class="option">C. throw</div>
+                <div class="option">D. finally</div>
+            </div>
+            <button class="show-answer">查看答案和解析</button>
+            <div class="answer解析">
+                <span class="answer-label">正确答案：C</span>
+                <p>解析：throw用于手动抛出异常对象（如throw new Exception()）；try用于包裹可能抛出异常的代码；catch用于捕获并处理异常；finally用于定义无论是否发生异常都执行的代码块。</p >
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 标签切换逻辑
+        const tags = document.querySelectorAll('.tag-btn');
+        const questionWrappers = document.querySelectorAll('.questions-wrapper');
+        
+        tags.forEach(tag => {
+            tag.addEventListener('click', () => {
+                // 切换标签激活状态
+                tags.forEach(t => t.classList.remove('active'));
+                tag.classList.add('active');
+                
+                // 切换题目显示
+                const target = tag.getAttribute('data-target');
+                questionWrappers.forEach(wrapper => {
+                    wrapper.classList.remove('active');
+                });
+                document.getElementById(target).classList.add('active');
+            });
+        });
+
+        // 显示答案解析逻辑
+        const showAnswerBtns = document.querySelectorAll('.show-answer');
+        showAnswerBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const answer解析 = btn.nextElementSibling;
+                answer解析.classList.toggle('visible');
+                btn.textContent = answer解析.classList.contains('visible') 
+                   ? '隐藏答案和解析' 
+                    : '查看答案和解析';
+            });
+        });
+    </script>
+</body>
+</html>
