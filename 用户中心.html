@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户中心</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3B82F6',
+                        secondary: '#10B981',
+                        accent: '#8B5CF6',
+                        dark: '#1E293B',
+                        light: '#F8FAFC',
+                        correct: '#10B981',
+                        incorrect: '#EF4444'
+                    },
+                    fontFamily: {
+                        inter: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+
+            .quiz-card {
+                @apply bg-white rounded-xl shadow-lg p-6 transform transition-all duration-300 hover:shadow-xl;
+            }
+
+            .option-btn {
+                @apply w-full p-4 border border-gray-300 rounded-lg mb-3 text-left transition-all duration-300 hover:border-primary hover:bg-blue-50 focus:outline-none focus:ring-2 focus:ring-primary/50;
+            }
+
+            .option-btn-selected {
+                @apply border-primary bg-blue-50;
+            }
+
+            .option-btn-correct {
+                @apply border-green-500 bg-green-50;
+            }
+
+            .option-btn-incorrect {
+                @apply border-red-500 bg-red-50;
+            }
+
+            .btn-primary {
+                @apply bg-primary hover:bg-primary/90 text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary/50 disabled:opacity-50 disabled:cursor-not-allowed;
+            }
+
+            .progress-bar {
+                @apply h-2 bg-gray-200 rounded-full overflow-hidden;
+            }
+
+            .progress-value {
+                @apply h-full bg-primary rounded-full transition-all duration-500 ease-out;
+            }
+
+            .explanation-box {
+                @apply mt-4 p-4 rounded-lg border border-gray-200 bg-gray-50;
+            }
+
+            .difficulty-btn {
+                @apply w-full p-4 border border-gray-300 rounded-lg mb-3 text-left transition-all duration-300 hover:border-primary hover:bg-blue-50 focus:outline-none focus:ring-2 focus:ring-primary/50;
+            }
+
+            .tab-content {
+                @apply hidden;
+            }
+
+            .tab-content.active {
+                @apply block;
+            }
+
+            .tab-btn.active {
+                @apply border-primary text-primary;
+            }
+
+            .back-btn {
+                @apply fixed top-4 left-4 z-50 bg-white shadow-md rounded-full p-2 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary/50;
+            }
+        }
+    </style>
+</head>
+
+<body class="font-inter bg-gradient-to-br from-light to-blue-50 min-h-screen">
+    <!-- 返回首页按钮 -->
+    <a href="./首页.html" class="back-btn">
+        <i class="fa fa-arrow-left"></i>
+    </a>
+
+    <div class="container mx-auto px-4 py-8 max-w-4xl">
+        <!-- 头部 -->
+        <header class="mb-8 text-center">
+            <h1 class="text-[clamp(2rem,5vw,3rem)] font-bold text-dark mb-2">用户中心</h1>
+        </header>
+
+        <!-- 用户中心主体 -->
+        <main class="quiz-card">
+            <!-- 个人信息区 -->
+            <div class="flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-8">
+                <div class="flex flex-col items-center">
+                    <div class="w-24 h-24 rounded-full bg-gray-200 flex items-center justify-center mb-2">
+                        <i class="fa fa-user text-4xl text-gray-500"></i>
+                    </div>
+                    <input type="file" id="upload-avatar" class="hidden">
+                    <label for="upload-avatar" class="btn-primary text-sm">上传头像</label>
+                </div>
+                <div>
+                    <h2 class="text-2xl font-bold text-dark mb-2">用户名</h2>
+                    <p class="text-gray-600 mb-1">信誉分：80</p>
+                    <p class="text-gray-600 mb-1">等级：中级</p>
+                    <p class="text-gray-600">简短个人简介：热爱计算机知识问答，不断学习进步！</p>
+                </div>
+            </div>
+
+            <!-- 活动统计 -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
+                <div class="bg-gray-50 p-4 rounded-lg text-center">
+                    <p class="text-sm text-gray-500 mb-1">提问数</p>
+                    <p class="text-xl font-bold text-primary">10</p>
+                </div>
+                <div class="bg-gray-50 p-4 rounded-lg text-center">
+                    <p class="text-sm text-gray-500 mb-1">回答数</p>
+                    <p class="text-xl font-bold text-primary">20</p>
+                </div>
+                <div class="bg-gray-50 p-4 rounded-lg text-center">
+                    <p class="text-sm text-gray-500 mb-1">获赞数</p>
+                    <p class="text-xl font-bold text-primary">50</p>
+                </div>
+                <div class="bg-gray-50 p-4 rounded-lg text-center">
+                    <p class="text-sm text-gray-500 mb-1">收藏数</p>
+                    <p class="text-xl font-bold text-primary">15</p>
+                </div>
+            </div>
+
+            <!-- 内容标签页 -->
+            <div class="mt-8">
+                <div class="flex space-x-4 border-b border-gray-200">
+                    <button class="tab-btn active pb-3 border-b-2 border-transparent hover:border-primary text-gray-600 hover:text-primary focus:outline-none" data-tab="questions">我的提问</button>
+                    <button class="tab-btn pb-3 border-b-2 border-transparent hover:border-primary text-gray-600 hover:text-primary focus:outline-none" data-tab="answers">我的回答</button>
+                    <button class="tab-btn pb-3 border-b-2 border-transparent hover:border-primary text-gray-600 hover:text-primary focus:outline-none" data-tab="favorites">我的收藏</button>
+                    <button class="tab-btn pb-3 border-b-2 border-transparent hover:border-primary text-gray-600 hover:text-primary focus:outline-none" data-tab="drafts">草稿箱</button>
+                </div>
+                
+                <div class="mt-4">
+                    <!-- 我的提问 -->
+                    <div id="questions" class="tab-content active">
+                        <div class="space-y-4">
+                            <div class="p-4 bg-gray-50 rounded-lg border border-gray-200">
+                                <h3 class="font-bold text-lg mb-2">Python 中的装饰器如何工作？</h3>
+                                <p class="text-gray-600 mb-2">我对 Python 装饰器的工作原理不太理解，特别是多层装饰器的执行顺序...</p>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-sm text-gray-500">发布于 3 天前</span>
+                                    <span class="bg-blue-100 text-primary text-xs px-2 py-1 rounded">Python</span>
+                                </div>
+                            </div>
+                            
+                            <div class="p-4 bg-gray-50 rounded-lg border border-gray-200">
+                                <h3 class="font-bold text-lg mb-2">如何优化 SQL 查询性能？</h3>
+                                <p class="text-gray-600 mb-2">我的数据库查询越来越慢，特别是在处理大量数据时。有哪些方法可以优化 SQL 查询性能？...</p>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-sm text-gray-500">发布于 1 周前</span>
+                                    <span class="bg-blue-100 text-primary text-xs px-2 py-1 rounded">SQL</span>
+                                </div>
+                            </div>
+                            
+                            <button class="btn-primary w-full mt-4">加载更多</button>
+                        </div>
+                    </div>
+                    
+                    <!-- 我的回答 -->
+                    <div id="answers" class="tab-content">
+                        <div class="space-y-4">
+                            <div class="p-4 bg-gray-50 rounded-lg border border-gray-200">
+                                <h3 class="font-bold text-lg mb-2">回答了：JavaScript 中的闭包是什么？</h3>
+                                <p class="text-gray-600 mb-2">闭包是 JavaScript 中一个非常强大的特性，它允许函数访问并记住其词法作用域中的变量，即使该函数在其词法作用域之外执行...</p>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-sm text-gray-500">回答于 2 天前</span>
+                                    <div class="flex items-center">
+                                        <i class="fa fa-thumbs-up text-green-500 mr-1"></i>
+                                        <span class="text-sm text-gray-600">15 赞同</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="p-4 bg-gray-50 rounded-lg border border-gray-200">
+                                <h3 class="font-bold text-lg mb-2">回答了：如何在 React 中实现状态管理？</h3>
+                                <p class="text-gray-600 mb-2">在 React 中实现状态管理有多种方式，取决于应用的规模和复杂度。对于小型应用，可以使用 useState 和 useContext 钩子...</p>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-sm text-gray-500">回答于 5 天前</span>
+                                    <div class="flex items-center">
+                                        <i class="fa fa-thumbs-up text-green-500 mr-1"></i>
+                                        <span class="text-sm text-gray-600">8 赞同</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <button class="btn-primary w-full mt-4">加载更多</button>
+                        </div>
+                    </div>
+                    
+                    <!-- 我的收藏 -->
+                    <div id="favorites" class="tab-content">
+                        <div class="space-y-4">
+                            <div class="p-4 bg-gray-50 rounded-lg border border-gray-200">
+                                <h3 class="font-bold text-lg mb-2">Git 常用命令速查表</h3>
+                                <p class="text-gray-600 mb-2">这份速查表包含了 Git 的常用命令，从基础的 add、commit 到高级的 rebase、cherry-pick，适合各个阶段的开发者使用...</p>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-sm text-gray-500">收藏于 3 天前</span>
+                                    <span class="bg-blue-100 text-primary text-xs px-2 py-1 rounded">Git</span>
+                                </div>
+                            </div>
+                            
+                            <div class="p-4 bg-gray-50 rounded-lg border border-gray-200">
+                                <h3 class="font-bold text-lg mb-2">算法复杂度分析入门</h3>
+                                <p class="text-gray-600 mb-2">本文详细介绍了算法复杂度分析的基本概念，包括大 O 表示法、时间复杂度和空间复杂度的计算方法，以及如何分析常见算法的复杂度...</p>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-sm text-gray-500">收藏于 1 周前</span>
+                                    <span class="bg-blue-100 text-primary text-xs px-2 py-1 rounded">算法</span>
+                                </div>
+                            </div>
+                            
+                            <button class="btn-primary w-full mt-4">加载更多</button>
+                        </div>
+                    </div>
+                    
+                    <!-- 草稿箱 -->
+                    <div id="drafts" class="tab-content">
+                        <div class="space-y-4">
+                            <div class="p-4 bg-gray-50 rounded-lg border border-gray-200">
+                                <h3 class="font-bold text-lg mb-2">关于机器学习的问题</h3>
+                                <p class="text-gray-600 mb-2">我正在学习机器学习，对监督学习和无监督学习的区别不太理解...</p>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-sm text-gray-500">保存于 1 天前</span>
+                                    <button class="text-primary text-sm">继续编辑</button>
+                                </div>
+                            </div>
+                            
+                            <div class="p-4 bg-gray-50 rounded-lg border border-gray-200">
+                                <h3 class="font-bold text-lg mb-2">Docker 容器部署问题</h3>
+                                <p class="text-gray-600 mb-2">我在尝试将一个 Node.js 应用部署到 Docker 容器中，但遇到了一些网络连接问题...</p>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-sm text-gray-500">保存于 2 天前</span>
+                                    <button class="text-primary text-sm">继续编辑</button>
+                                </div>
+                            </div>
+                            
+                            <button class="btn-primary w-full mt-4">加载更多</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- 页脚 -->
+        <footer class="mt-12 text-center text-gray-500 text-sm">
+            <p>© 2025 计算机专业知识挑战 | 为学习和娱乐而设计</p>
+        </footer>
+    </div>
+
+    <script>
+        // 标签切换功能
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // 移除所有标签按钮的活动状态
+                    tabBtns.forEach(b => b.classList.remove('active'));
+                    
+                    // 隐藏所有标签内容
+                    tabContents.forEach(content => content.classList.remove('active'));
+                    
+                    // 添加当前标签按钮的活动状态
+                    btn.classList.add('active');
+                    
+                    // 显示当前标签内容
+                    const tabId = btn.getAttribute('data-tab');
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

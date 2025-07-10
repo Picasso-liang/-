@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>编程问答系统 - 首页</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+        }
+        
+        header {
+            background-color: #1890ff;
+            color: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .logo span {
+            font-size: 1rem;
+            font-weight: normal;
+            margin-left: 0.5rem;
+            opacity: 0.8;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+        }
+        
+        nav ul li a:hover {
+            opacity: 0.8;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        /* 更多操作下拉菜单 */
+        .dropdown {
+            position: relative;
+            margin-left: 1.5rem;
+        }
+        
+        .dropdown-button {
+            background: linear-gradient(135deg, #40a9ff, #722ed1);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+        }
+        
+        .dropdown-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+            background: linear-gradient(135deg, #2f98eb, #631db4);
+        }
+        
+        .dropdown-content {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background-color: white;
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            margin-top: 0.5rem;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            z-index: 1;
+        }
+        
+        .dropdown:hover .dropdown-content {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .dropdown-content a {
+            color: #333;
+            padding: 0.75rem 1.5rem;
+            text-decoration: none;
+            display: block;
+            transition: background-color 0.3s;
+        }
+        
+        .dropdown-content a:hover {
+            background-color: #f5f7fa;
+            color: #1890ff;
+        }
+        
+        .dropdown-content a:first-child {
+            border-radius: 8px 8px 0 0;
+        }
+        
+        .dropdown-content a:last-child {
+            border-radius: 0 0 8px 8px;
+        }
+        
+        main {
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .welcome-banner {
+            background: linear-gradient(135deg, #1890ff, #36cfc9);
+            color: white;
+            padding: 3rem 2rem;
+            border-radius: 8px;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+        
+        .welcome-banner h1 {
+            margin-bottom: 1.5rem;
+            font-size: 2.5rem;
+        }
+        
+        .welcome-banner p {
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .feature-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 30px rgba(24, 144, 255, 0.15);
+        }
+        
+        .feature-card h3 {
+            color: #1890ff;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            font-size: 1.2rem;
+        }
+        
+        .feature-card h3 svg {
+            margin-right: 0.7rem;
+            width: 24px;
+            height: 24px;
+        }
+        
+        .feature-card p {
+            color: #666;
+            line-height: 1.8;
+        }
+        
+        footer {
+            background-color: #f0f2f5;
+            padding: 2rem;
+            text-align: center;
+            color: #666666;
+            font-size: 0.9rem;
+        }
+        
+        /* 图标样式 */
+        .icon {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+        }
+        
+        .dropdown-icon {
+            width: 16px;
+            height: 16px;
+            margin-left: 0.5rem;
+        }
+
+        /*删除下划线*/
+        .feature-card a {
+            text-decoration: none;
+        }
+
+        /* 放大的挑战按钮样式 */
+        .challenge-button {
+            display: block;
+            width: 100%;
+            max-width: 400px;
+            margin: 3rem auto;
+            padding: 1.5rem 2rem;
+            background: linear-gradient(135deg, #1890ff, #36cfc9);
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 50px;
+            box-shadow: 0 8px 30px rgba(24, 144, 255, 0.3);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .challenge-button:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(24, 144, 255, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            编程问答系统 <span>问答之间，编程更简单</span>
+        </div>
+        <nav>
+            <ul>
+                <!-- 导航栏中添加对应网址 -->
+                <li><a href="./首页.html" >首页</a></li>
+                <li><a href="./热门问题.html" >热门问题</a></li>
+                <li><a href="./用户中心.html">用户中心</a></li>
+                <li><a href="./活跃社区.html" >活跃社区</a></li>
+                <li><a href="./使用历史.html" >使用历史</a></li>
+            </ul>
+        </nav>
+        
+        <!-- 添加更多操作下拉菜单 -->
+        <div class="dropdown">
+            <div class="dropdown-button">
+                更多操作
+                <svg class="dropdown-icon" viewBox="0 0 24 24">
+                    <path d="M7 10l5 5 5-5z"/>
+                </svg>
+            </div>
+            <div class="dropdown-content">
+                <a href="./set_password.html">修改密码</a>
+                <a href="./register.html">退出登录</a>
+            </div>
+        </div>
+    </header>
+    
+    <main>
+        <div class="welcome-banner">
+            <h1>欢迎回到编程问答系统</h1>
+            <p>在这里，您可以找到各种编程问题的解答，与同行交流，提升您的编程技能</p >
+        </div>
+        
+        <!-- 放大的挑战按钮 -->
+        <a href="./start.html" class="challenge-button">准备好了吗，来挑战！</a>
+        
+        <div class="features" >
+            <div class="feature-card" >
+                <a href="./热门问题.html">
+                    <h3>
+                    <svg class="icon" viewBox="0 0 24 24">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
+                    </svg>
+                    热门编程问题
+                    </h3>
+                    <p>浏览最受欢迎的编程问题，学习常见问题的解决方案</p >
+                </a>
+            </div>
+
+            <div class="feature-card" >
+                <a href="./用户中心.html">
+                    <h3>
+                    <svg class="icon" viewBox="0 0 24 24">
+                        <path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm0 4c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm6 12H6v-1.4c0-2 4-3.1 6-3.1s6 1.1 6 3.1V19z"/>
+                    </svg>
+                    用户中心
+                    </h3>
+                    <p>管理您的个人资料，查看您的提问和回答历史</p >
+                </a>       
+            </div>
+            
+            <div class="feature-card">
+                <a href="./活跃社区.html">
+                    <h3>
+                    <svg class="icon" viewBox="0 0 24 24">
+                        <path d="M16 11c1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3 1.34 3 3 3zm-8 0c1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3 1.34-3 3-3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
+                    </svg>
+                    活跃社区
+                    </h3>
+                    <p>加入我们的编程社区，与其他开发者交流经验</p >
+                </a>
+            </div>
+            
+        </div>
+    </main>
+    
+    <footer>
+        <p>© 2023 编程问答系统 - 问答之间，编程更简单</p >
+    </footer>
+    
+    <script>
+        // 从登录页跳转过来的处理
+        document.addEventListener('DOMContentLoaded', function() {
+            // 检查是否是从登录页跳转过来的
+            const urlParams = new URLSearchParams(window.location.search);
+            const loggedIn = urlParams.get('loggedIn');
+            
+            if (loggedIn === 'true') {
+                // 可以在这里添加登录后的处理逻辑
+                console.log('用户已登录');
+            }
+        });
+    </script>
+</body>
+</html>

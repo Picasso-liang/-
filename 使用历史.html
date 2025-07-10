@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>使用历史记录</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3B82F6',
+                        secondary: '#10B981',
+                        accent: '#8B5CF6',
+                        dark: '#1E293B',
+                        light: '#F8FAFC',
+                        correct: '#10B981',
+                        incorrect: '#EF4444',
+                        easy: '#10B981',    // 绿色表示简单
+                        medium: '#F59E0B',  // 黄色表示中等
+                        hard: '#EF4444',    // 红色表示困难
+                    },
+                    fontFamily: {
+                        inter: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+
+            .history-card {
+                @apply bg-white rounded-xl shadow-lg p-6 transform transition-all duration-300 hover:shadow-xl;
+            }
+
+            .tab-btn {
+                @apply px-4 py-2 text-gray-600 hover:text-primary focus:outline-none;
+            }
+
+            .tab-btn.active {
+                @apply text-primary font-bold border-b-2 border-primary;
+            }
+
+            .content-panel {
+                @apply hidden;
+            }
+
+            .content-panel.active {
+                @apply block;
+            }
+
+            .analysis-panel {
+                @apply bg-gray-50 p-6 rounded-lg mb-6;
+            }
+
+            .knowledge-frequency {
+                @apply flex flex-wrap gap-2 mb-4;
+            }
+
+            .frequency-tag {
+                @apply bg-white p-2 rounded-full shadow-sm flex items-center;
+            }
+
+            .frequency-tag .count {
+                @apply bg-primary text-white w-6 h-6 rounded-full flex items-center justify-center text-xs ml-2;
+            }
+
+            .knowledge-detail {
+                @apply bg-white p-4 rounded-lg mb-4;
+            }
+
+            .related-questions {
+                @apply bg-white p-4 rounded-lg;
+            }
+
+            .question-item {
+                @apply my-2 pl-2 border-l-2 border-primary;
+            }
+
+            .item-card {
+                @apply my-4 p-4 border border-gray-200 rounded-lg transition-all duration-300 hover:shadow-md;
+            }
+
+            .item-header {
+                @apply flex justify-between mb-2;
+            }
+
+            .item-type {
+                @apply text-xs px-2 py-1 rounded;
+            }
+
+            .type-error {
+                @apply bg-red-100 text-red-700;
+            }
+
+            .type-collect {
+                @apply bg-blue-100 text-blue-700;
+            }
+
+            .knowledge {
+                @apply inline-block bg-blue-100 text-blue-700 text-xs px-2 py-1 rounded mr-2 mb-2;
+            }
+
+            .answer-info {
+                @apply text-sm text-gray-600 pl-2 border-l-2 border-gray-300;
+            }
+            
+            /* 新增样式：答案显示控制 */
+            .answer-container {
+                @apply mt-2 overflow-hidden transition-all duration-300 max-h-0 opacity-0;
+            }
+            
+            .answer-container.show {
+                @apply max-h-96 opacity-100;
+            }
+            
+            /* 优化后的按钮样式 */
+            .answer-btn {
+                @apply bg-primary hover:bg-primary/90 text-white font-medium py-1 px-3 rounded-lg text-sm transition-all duration-200 flex items-center;
+            }
+            
+            .answer-btn:hover {
+                @apply shadow-md;
+            }
+            
+            .answer-btn.active {
+                @apply bg-gray-600 hover:bg-gray-700;
+            }
+            
+            .answer-icon {
+                @apply mr-1 transition-transform duration-300;
+            }
+            
+            .answer-btn.active .answer-icon {
+                @apply transform rotate-180;
+            }
+            
+            /* 返回按钮样式 */
+            .back-btn {
+                @apply fixed top-4 left-4 bg-primary/90 hover:bg-primary text-white w-10 h-10 rounded-full flex items-center justify-center shadow-lg transition-all duration-200 z-50;
+            }
+            
+            .back-btn:hover {
+                @apply scale-105 shadow-xl;
+            }
+        }
+    </style>
+</head>
+
+<body class="font-inter bg-gradient-to-br from-light to-blue-50 min-h-screen">
+    <!-- 返回按钮 -->
+     <a href="./首页.html">
+        <button class="back-btn" onclick="goBack()">
+        <i class="fa fa-arrow-left"></i>
+    </button>
+     </a>
+    
+
+    <div class="container mx-auto px-4 py-8 max-w-4xl">
+        <!-- 头部 -->
+        <header class="mb-8 text-center">
+            <h1 class="text-[clamp(2rem,5vw,3rem)] font-bold text-dark mb-2">使用历史记录</h1>
+            <p class="text-gray-600 text-lg mb-6">查看错题、收藏及知识点分析，针对性巩固</p>
+        </header>
+
+        <!-- 高频知识点分析区 -->
+        <div class="analysis-panel">
+            <div class="flex items-center mb-4">
+                <i class="fa fa-bar-chart text-primary text-xl mr-2"></i>
+                <h4 class="text-lg font-bold">高频知识点分析（基于你的错题和收藏）</h4>
+            </div>
+
+            <!-- 知识点频率标签 -->
+            <div class="knowledge-frequency">
+                <div class="frequency-tag">
+                    数据结构 <span class="count">5</span>
+                </div>
+                <div class="frequency-tag">
+                    操作系统原理 <span class="count">4</span>
+                </div>
+                <div class="frequency-tag">
+                    计算机网络 <span class="count">3</span>
+                </div>
+                <div class="frequency-tag">
+                    编程语言基础 <span class="count">2</span>
+                </div>
+            </div>
+
+            <!-- 选中的高频知识点详细讲解 -->
+            <div class="knowledge-detail">
+                <h5 class="font-bold mb-2">▶ 数据结构（出现5次）</h5>
+                <p>数据结构是计算机存储、组织数据的方式，常见类型包括：</p>
+                <ul class="list-disc pl-6">
+                    <li>数组：是一种线性数据结构，它由相同类型的元素组成，可以通过索引快速访问元素。</li>
+                    <li>链表：也是一种线性数据结构，由节点组成，每个节点包含数据和指向下一个节点的指针。</li>
+                    <li>栈：是一种后进先出（LIFO）的数据结构，只能在栈顶进行插入和删除操作。</li>
+                    <li>队列：是一种先进先出（FIFO）的数据结构，只能在队尾插入元素，在队头删除元素。</li>
+                </ul>
+                <p class="font-bold mt-2">易错点：栈和队列的操作特点容易混淆。</p>
+            </div>
+
+            <!-- 相关推荐题目 -->
+            <div class="related-questions">
+                <h5 class="font-bold mb-2">▶ 推荐练习（数据结构相关题目）</h5>
+                <div class="question-item">
+                    <p>1. 以下哪种数据结构适合实现递归算法的调用栈？（ ）A. 数组 B. 链表 C. 栈 D. 队列</p>
+                    <button class="answer-btn" onclick="toggleAnswer(this)">
+                        <i class="fa fa-chevron-down answer-icon"></i> 查看答案
+                    </button>
+                    <div class="answer-container">
+                        <p class="text-correct font-medium mt-2">答案：C</p>
+                        <p class="text-sm text-gray-600">解析：递归算法的调用过程符合后进先出的特点，栈是后进先出的数据结构，所以适合实现递归算法的调用栈。</p>
+                    </div>
+                </div>
+                <div class="question-item">
+                    <p>2. 在一个循环队列中，队头指针 front 指向队头元素，队尾指针 rear 指向队尾元素的下一个位置。若队列的最大容量为 maxSize，则判断队列满的条件是（ ）A. (rear + 1) % maxSize == front B. rear == front C. (rear - 1) % maxSize == front D. rear + 1 == front</p>
+                    <button class="answer-btn" onclick="toggleAnswer(this)">
+                        <i class="fa fa-chevron-down answer-icon"></i> 查看答案
+                    </button>
+                    <div class="answer-container">
+                        <p class="text-correct font-medium mt-2">答案：A</p>
+                        <p class="text-sm text-gray-600">解析：在循环队列中，为了区分队列满和队列空的情况，通常采用 (rear + 1) % maxSize == front 来判断队列是否满。</p>
+                    </div>
+                </div>
+                <div class="question-item">
+                    <p>3. 以下哪种数据结构的插入和删除操作的时间复杂度都是 O(1)？（ ）A. 数组 B. 链表 C. 栈 D. 以上都是</p>
+                    <button class="answer-btn" onclick="toggleAnswer(this)">
+                        <i class="fa fa-chevron-down answer-icon"></i> 查看答案
+                    </button>
+                    <div class="answer-container">
+                        <p class="text-correct font-medium mt-2">答案：C</p>
+                        <p class="text-sm text-gray-600">解析：栈的插入和删除操作都只在栈顶进行，时间复杂度为 O(1)；数组的插入和删除操作可能需要移动元素，时间复杂度为 O(n)；链表的插入和删除操作需要遍历链表找到插入或删除的位置，时间复杂度为 O(n)。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 原有错题和收藏面板 -->
+        <div class="flex border-b border-gray-300 mb-6">
+            <button class="tab-btn active" onclick="switchTab('error')">错题记录</button>
+            <button class="tab-btn" onclick="switchTab('collect')">收藏例题</button>
+        </div>
+
+        <!-- 错题记录面板 -->
+        <div class="content-panel active" id="error-panel">
+            <h4 class="text-lg font-bold mb-4">共 <span class="badge">12</span> 道错题</h4>
+
+            <!-- 错题示例1 -->
+            <div class="item-card">
+                <div class="item-header">
+                    <span class="item-type type-error">错题</span>
+                    <span class="item-date">2025-07-05 15:30</span>
+                </div>
+                <div>
+                    <span class="knowledge">数据结构</span>
+                    <span class="knowledge">栈</span>
+                </div>
+                <p class="question-text">1. 若一个栈的输入序列为 1, 2, 3, 4，以下哪个输出序列是不可能的？（ ）A. 4, 3, 2, 1 B. 3, 4, 2, 1 C. 4, 1, 2, 3 D. 2, 3, 4, 1</p>
+                <div class="answer-info">
+                    <p>你的答案：A</p>
+                    <p>正确答案：C</p>
+                    <p>解析：栈的特点是后进先出。对于选项 C，若要先输出 4，则 1, 2, 3 必须已经入栈，此时栈顶元素为 3，下一个输出只能是 3，而不是 1，所以该输出序列不可能。</p>
+                </div>
+                <button class="btn btn-sm btn-primary review-btn">再次练习</button>
+            </div>
+
+            <!-- 错题示例2 -->
+            <div class="item-card">
+                <div class="item-header">
+                    <span class="item-type type-error">错题</span>
+                    <span class="item-date">2025-07-03 09:15</span>
+                </div>
+                <div>
+                    <span class="knowledge">操作系统原理</span>
+                    <span class="knowledge">进程调度</span>
+                </div>
+                <p class="question-text">2. 以下哪种进程调度算法可以保证每个进程在一定时间内都能得到执行？（ ）A. 先来先服务（FCFS） B. 短作业优先（SJF） C. 时间片轮转（RR） D. 优先级调度</p>
+                <div class="answer-info">
+                    <p>你的答案：B</p>
+                    <p>正确答案：C</p>
+                    <p>解析：时间片轮转算法将 CPU 时间划分成固定大小的时间片，每个进程轮流执行一个时间片，这样可以保证每个进程在一定时间内都能得到执行。</p>
+                </div>
+                <button class="btn btn-sm btn-primary review-btn">再次练习</button>
+            </div>
+
+            <!-- 更多错题... -->
+        </div>
+
+        <!-- 收藏例题面板 -->
+        <div class="content-panel" id="collect-panel">
+            <h4 class="text-lg font-bold mb-4">共 <span class="badge">8</span> 道收藏例题</h4>
+
+            <!-- 收藏例题示例1 -->
+            <div class="item-card">
+                <div class="item-header">
+                    <span class="item-type type-collect">收藏例题</span>
+                    <span class="item-date">2025-07-06 16:40</span>
+                </div>
+                <div>
+                    <span class="knowledge">计算机网络</span>
+                    <span class="knowledge">TCP/IP 协议</span>
+                </div>
+                <p class="question-text">1. 在 TCP/IP 协议中，以下哪个协议属于传输层协议？（ ）A. IP B. TCP C. HTTP D. DNS</p>
+                <div class="answer-info">
+                    <p>正确答案：B</p>
+                    <p>解析：TCP（传输控制协议）是传输层协议，提供可靠的、面向连接的通信；IP 是网络层协议；HTTP 是应用层协议；DNS 是应用层协议，用于域名解析。</p>
+                </div>
+                <button class="btn btn-sm btn-secondary review-btn">取消收藏</button>
+            </div>
+
+            <!-- 收藏例题示例2 -->
+            <div class="item-card">
+                <div class="item-header">
+                    <span class="item-type type-collect">收藏例题</span>
+                    <span class="item-date">2025-06-30 14:20</span>
+                </div>
+                <div>
+                    <span class="knowledge">编程语言基础</span>
+                    <span class="knowledge">Python 语法</span>
+                </div>
+                <p class="question-text">2. 在 Python 中，以下哪个语句可以用于异常处理？（ ）A. if-else B. for C. try-except D. while</p>
+                <div class="answer-info">
+                    <p>正确答案：C</p>
+                    <p>解析：在 Python 中，try-except 语句用于异常处理，当 try 块中的代码出现异常时，会跳转到 except 块中执行相应的处理代码。</p>
+                </div>
+                <button class="btn btn-sm btn-secondary review-btn">取消收藏</button>
+            </div>
+
+            <!-- 更多收藏例题... -->
+        </div>
+    </div>
+
+    <script>
+        // 切换标签面板
+        function switchTab(type) {
+            document.querySelectorAll('.content-panel').forEach(panel => panel.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.getElementById(`${type}-panel`).classList.add('active');
+            document.querySelector(`.tab-btn[onclick="switchTab('${type}')"]`).classList.add('active');
+        }
+
+        // 高频知识点切换（点击不同频率标签显示对应讲解）
+        document.querySelectorAll('.frequency-tag').forEach(tag => {
+            tag.addEventListener('click', function () {
+                // 实际项目中应根据点击的知识点加载对应的讲解和题目
+                alert(`加载“${this.textContent.trim()}”的详细讲解和相关题目`);
+            });
+        });
+
+        // 切换答案显示/隐藏
+        function toggleAnswer(button) {
+            const answerContainer = button.nextElementSibling;
+            answerContainer.classList.toggle('show');
+            button.classList.toggle('active');
+            
+            // 更新按钮文本
+            if (button.classList.contains('active')) {
+                button.innerHTML = '<i class="fa fa-chevron-up answer-icon"></i> 隐藏答案';
+            } else {
+                button.innerHTML = '<i class="fa fa-chevron-down answer-icon"></i> 查看答案';
+            }
+        }
+
+        // 返回上一页或指定页面
+        function goBack() {
+            if (history.length > 1) {
+                // 如果有历史记录，返回上一页
+                history.back();
+            } else {
+                // 如果没有历史记录，可以跳转到指定页面
+                window.location.href = "./首页.html"; // 修改为你想要的URL
+            }
+        }
+    </script>
+</body>
+
+</html>

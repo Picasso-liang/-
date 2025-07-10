@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>计算机专业知识问答</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3B82F6',
+                        secondary: '#10B981',
+                        accent: '#8B5CF6',
+                        dark: '#1E293B',
+                        light: '#F8FAFC',
+                        correct: '#10B981',
+                        incorrect: '#EF4444',
+                        easy: '#10B981',    // 绿色表示简单
+                        medium: '#F59E0B',  // 黄色表示中等
+                        hard: '#EF4444',    // 红色表示困难
+                    },
+                    fontFamily: {
+                        inter: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+
+            .quiz-card {
+                @apply bg-white rounded-xl shadow-lg p-6 transform transition-all duration-300 hover:shadow-xl;
+            }
+
+            .option-btn {
+                @apply w-full p-4 border border-gray-300 rounded-lg mb-3 text-left transition-all duration-300 hover:border-primary hover:bg-blue-50 focus:outline-none focus:ring-2 focus:ring-primary/50;
+            }
+
+            .option-btn-selected {
+                @apply border-primary bg-blue-50;
+            }
+
+            .option-btn-correct {
+                @apply border-green-500 bg-green-50;
+            }
+
+            .option-btn-incorrect {
+                @apply border-red-500 bg-red-50;
+            }
+
+            .btn-primary {
+                @apply bg-primary hover:bg-primary/90 text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary/50 disabled:opacity-50 disabled:cursor-not-allowed;
+            }
+
+            .progress-bar {
+                @apply h-2 bg-gray-200 rounded-full overflow-hidden;
+            }
+
+            .progress-value {
+                @apply h-full bg-primary rounded-full transition-all duration-500 ease-out;
+            }
+
+            .explanation-box {
+                @apply mt-4 p-4 rounded-lg border border-gray-200 bg-gray-50;
+            }
+
+            .difficulty-btn {
+                @apply w-full p-4 border border-gray-300 rounded-lg mb-3 text-left transition-all duration-300 hover:border-primary hover:bg-blue-50 focus:outline-none focus:ring-2 focus:ring-primary/50;
+            }
+            
+            .difficulty-badge {
+                @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+            }
+        }
+    </style>
+</head>
+
+<body class="font-inter bg-gradient-to-br from-light to-blue-50 min-h-screen">
+    <div class="container mx-auto px-4 py-8 max-w-4xl">
+        <!-- 头部 -->
+        <header class="mb-8 text-center">
+            <h1 class="text-[clamp(2rem,5vw,3rem)] font-bold text-dark mb-2">计算机知识问答</h1>
+            <p class="text-gray-600 text-lg mb-6">测试你的计算机专业知识水平，挑战自我！</p>
+            <div class="flex justify-between items-center">
+                <div id="progress-container" class="w-full max-w-md mx-auto">
+                    <div class="flex justify-between mb-1">
+                        <span class="text-sm font-medium text-gray-600" id="progress-text">问题 1/10</span>
+                        <span class="text-sm font-medium text-gray-600" id="score-text">得分: 0</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div id="progress-value" class="progress-value" style="width: 10%"></div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- 问答区域 -->
+        <main id="quiz-container" class="quiz-card">
+            <!-- 欢迎页面 -->
+            <div id="welcome-screen" class="text-center">
+                <div class="w-24 h-24 mx-auto mb-6 rounded-full bg-blue-100 flex items-center justify-center">
+                    <i class="fa fa-microchip text-primary text-4xl"></i>
+                </div>
+                <h2 class="text-2xl font-bold text-dark mb-4">准备好开始挑战了吗？</h2>
+                <p class="text-gray-600 mb-8">每次随机抽取 10 道题，每答对一题得 10 分。</p>
+                <button id="start-btn" class="btn-primary">
+                    <i class="fa fa-play mr-2"></i>开始挑战
+                </button>
+                <!-- 新增退出按钮 -->
+                <button id="exit-btn-welcome" class="btn-primary ml-4">
+                    <i class="fa fa-times mr-2"></i>退出
+                </button>
+            </div>
+
+            <!-- 问题页面 -->
+            <div id="question-screen" class="hidden">
+                <div class="flex justify-between mb-2">
+                    <span id="difficulty-label" class="text-sm"></span>
+                    <span id="category-label" class="text-sm text-gray-600"></span>
+                </div>
+                <div class="mb-6">
+                    <h2 id="question" class="text-xl font-bold text-dark mb-4">问题将在这里显示</h2>
+                    <div id="options" class="space-y-2">
+                        <!-- 选项将通过 JS 动态生成 -->
+                    </div>
+                    <div id="explanation-container" class="hidden explanation-box">
+                        <div class="flex items-start mb-2">
+                            <i id="result-icon-small" class="fa fa-check-circle text-green-500 text-xl mt-0.5 mr-2"></i>
+                            <h3 class="font-medium text-dark">回答解析</h3>
+                        </div>
+                        <p id="explanation-text" class="text-gray-600"></p>
+                    </div>
+                </div>
+                <div class="flex justify-between mt-8">
+                    <button id="prev-btn" class="btn-primary opacity-50 cursor-not-allowed" disabled>
+                        <i class="fa fa-arrow-left mr-2"></i>上一题
+                    </button>
+                    <button id="next-btn" class="btn-primary" disabled>
+                        下一题<i class="fa fa-arrow-right ml-2"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- 结果页面 -->
+            <div id="result-screen" class="hidden text-center">
+                <div class="w-24 h-24 mx-auto mb-6 rounded-full bg-green-100 flex items-center justify-center">
+                    <i id="result-icon" class="fa fa-trophy text-secondary text-4xl"></i>
+                </div>
+                <h2 class="text-2xl font-bold text-dark mb-2">挑战完成！</h2>
+                <p id="result-text" class="text-gray-600 mb-6">你的得分是: <span id="final-score" class="font-bold text-primary">0</span>/100</p>
+                <div id="performance-stats" class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8 max-w-md mx-auto">
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <p class="text-sm text-gray-500 mb-1">正确</p>
+                        <p id="correct-count" class="text-xl font-bold text-green-600">0</p>
+                    </div>
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <p class="text-sm text-gray-500 mb-1">错误</p>
+                        <p id="incorrect-count" class="text-xl font-bold text-red-600">0</p>
+                    </div>
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <p class="text-sm text-gray-500 mb-1">正确率</p>
+                        <p id="accuracy" class="text-xl font-bold text-primary">0%</p>
+                    </div>
+                </div>
+                <button id="restart-btn" class="btn-primary">
+                    <i class="fa fa-refresh mr-2"></i>重新开始
+                </button>
+                <!-- 新增退出按钮 -->
+                <button id="exit-btn-result" class="btn-primary ml-4">
+                    <i class="fa fa-times mr-2"></i>退出
+                </button>
+            </div>
+        </main>
+
+        <!-- 页脚 -->
+        <footer class="mt-12 text-center text-gray-500 text-sm">
+            <p>© 2025 计算机专业知识挑战 | 为学习和娱乐而设计</p>
+        </footer>
+    </div>
+
+    <script>
+        // 将字母(A-D)转换为数字索引(0-3)
+        function letterToIndex(letter) {
+            return letter.charCodeAt(0) - 65;
+        }
+
+        // 50 题计算机专业题库，answer 使用字母 A-D
+        const fullQuestionBank = [
+            {
+                question: "{{x1.question}}",
+                options: ["{{x1.choice_a}}", "{{x1.choice_b}}", "{{x1.choice_c}}", "{{x1.choice_d}}"],
+                answer: "{{x1.answer}}",  // 原 answer: 0
+                category: "{{x1_category}}",
+                explanation: "{{x1.detail}}",
+                difficulty: "{{x1.hard}}"
+            },
+            {
+                question: "{{x2.question}}",
+                options: ["{{x2.choice_a}}", "{{x2.choice_b}}", "{{x2.choice_c}}", "{{x2.choice_d}}"],
+                answer: "{{x2.answer}}",  // 原 answer: 0
+                category: "{{x2_category}}",
+                explanation: "{{x2.detail}}",
+                difficulty: "{{x2.hard}}"
+            },
+            {
+                question: "{{x3.question}}",
+                options: ["{{x3.choice_a}}", "{{x3.choice_b}}", "{{x3.choice_c}}", "{{x3.choice_d}}"],
+                answer: "{{x3.answer}}",  // 原 answer: 0
+                category: "{{x3_category}}",
+                explanation: "{{x3.detail}}",
+                difficulty: "{{x3.hard}}"
+            },
+            {
+                question: "{{x4.question}}",
+                options: ["{{x4.choice_a}}", "{{x4.choice_b}}", "{{x4.choice_c}}", "{{x4.choice_d}}"],
+                answer: "{{x4.answer}}",  // 原 answer: 0
+                category: "{{x4_category}}",
+                explanation: "{{x4.detail}}",
+                difficulty: "{{x4.hard}}"
+            },
+            {
+                question: "{{x5.question}}",
+                options: ["{{x5.choice_a}}", "{{x5.choice_b}}", "{{x5.choice_c}}", "{{x5.choice_d}}"],
+                answer: "{{x5.answer}}",  // 原 answer: 0
+                category: "{{x5_category}}",
+                explanation: "{{x5.detail}}",
+                difficulty: "{{x5.hard}}"
+            },
+            {
+                question: "{{x6.question}}",
+                options: ["{{x6.choice_a}}", "{{x6.choice_b}}", "{{x6.choice_c}}", "{{x6.choice_d}}"],
+                answer: "{{x6.answer}}",  // 原 answer: 0
+                category: "{{x6_category}}",
+                explanation: "{{x6.detail}}",
+                difficulty: "{{x6.hard}}"
+            },
+            {
+                question: "{{x7.question}}",
+                options: ["{{x7.choice_a}}", "{{x7.choice_b}}", "{{x7.choice_c}}", "{{x7.choice_d}}"],
+                answer: "{{x7.answer}}",  // 原 answer: 0
+                category: "{{x7_category}}",
+                explanation: "{{x7.detail}}",
+                difficulty: "{{x7.hard}}"
+            },
+            {
+                question: "{{x8.question}}",
+                options: ["{{x8.choice_a}}", "{{x8.choice_b}}", "{{x8.choice_c}}", "{{x8.choice_d}}"],
+                answer: "{{x8.answer}}",  // 原 answer: 0
+                category: "{{x8_category}}",
+                explanation: "{{x8.detail}}",
+                difficulty: "{{x8.hard}}"
+            },
+            {
+                question: "{{x9.question}}",
+                options: ["{{x9.choice_a}}", "{{x9.choice_b}}", "{{x9.choice_c}}", "{{x9.choice_d}}"],
+                answer: "{{x9.answer}}",  // 原 answer: 0
+                category: "{{x9_category}}",
+                explanation: "{{x9.detail}}",
+                difficulty: "{{x9.hard}}"
+            },
+            {
+                question: "{{x10.question}}",
+                options: ["{{x10.choice_a}}", "{{x10.choice_b}}", "{{x10.choice_c}}", "{{x10.choice_d}}"],
+                answer: "{{x10.answer}}",  // 原 answer: 0
+                category: "{{x10_category}}",
+                explanation: "{{x10.detail}}",
+                difficulty: "{{x10.hard}}"
+            },
+            // 其余题目保持不变...
+        ];
+
+        const startBtn = document.getElementById('start-btn');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const restartBtn = document.getElementById('restart-btn');
+        const welcomeScreen = document.getElementById('welcome-screen');
+        const questionScreen = document.getElementById('question-screen');
+        const resultScreen = document.getElementById('result-screen');
+        const questionElement = document.getElementById('question');
+        const optionsElement = document.getElementById('options');
+        const explanationContainer = document.getElementById('explanation-container');
+        const explanationText = document.getElementById('explanation-text');
+        const progressText = document.getElementById('progress-text');
+        const scoreText = document.getElementById('score-text');
+        const progressValue = document.getElementById('progress-value');
+        const finalScore = document.getElementById('final-score');
+        const correctCount = document.getElementById('correct-count');
+        const incorrectCount = document.getElementById('incorrect-count');
+        const accuracy = document.getElementById('accuracy');
+        const difficultyLabel = document.getElementById('difficulty-label');
+        const categoryLabel = document.getElementById('category-label');
+        // 获取退出按钮
+        const exitBtnWelcome = document.getElementById('exit-btn-welcome');
+        const exitBtnResult = document.getElementById('exit-btn-result');
+
+        let currentQuestionIndex = 0;
+        let score = 0;
+        let correctAnswers = 0;
+        let incorrectAnswers = 0;
+        let selectedOption = null;
+        let questions = [];
+        let questionAnswered = false; // 新增变量跟踪问题是否已回答
+
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+
+        function selectQuestionBank() {
+            questions = shuffleArray(fullQuestionBank).slice(0, 10);
+        }
+
+        function showQuestion() {
+            const question = questions[currentQuestionIndex];
+            questionElement.textContent = question.question;
+            optionsElement.innerHTML = '';
+            question.options.forEach((option, index) => {
+                const optionBtn = document.createElement('button');
+                optionBtn.classList.add('option-btn');
+                // 在选项前加上字母标识
+                optionBtn.innerHTML = `<span class="font-bold mr-2">${String.fromCharCode(65 + index)}.</span>${option}`;
+                optionBtn.addEventListener('click', () => selectOption(String.fromCharCode(65 + index)));
+                optionsElement.appendChild(optionBtn);
+            });
+            explanationContainer.classList.add('hidden');
+            selectedOption = null;
+            questionAnswered = false; // 重置问题回答状态
+            nextBtn.disabled = true;
+            if (currentQuestionIndex === 0) {
+                prevBtn.disabled = true;
+                prevBtn.classList.add('opacity-50', 'cursor-not-allowed');
+            } else {
+                prevBtn.disabled = false;
+                prevBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+            }
+
+            // 根据难度系数设置标签样式
+            let difficultyClass = '';
+            if (question.difficulty <= 3) {
+                difficultyClass = 'bg-green-100 text-green-800';
+            } else if (question.difficulty <= 6) {
+                difficultyClass = 'bg-yellow-100 text-yellow-800';
+            } else {
+                difficultyClass = 'bg-red-100 text-red-800';
+            }
+            
+            // 更新难度等级和标签的显示内容
+            difficultyLabel.innerHTML = `难度: <span class="difficulty-badge ${difficultyClass}">${question.difficulty}/10</span>`;
+            categoryLabel.textContent = `标签: ${question.category}`;
+        }
+
+        function selectOption(letter) {
+            // 如果问题已回答，则不执行任何操作
+            if (questionAnswered) return;
+
+            const question = questions[currentQuestionIndex];
+            const optionBtns = document.querySelectorAll('.option-btn');
+            const selectedIndex = letterToIndex(letter);
+
+            // 禁用所有选项按钮，防止重复选择
+            optionBtns.forEach((btn, i) => {
+                btn.disabled = true;
+                // 如果是正确答案，无论用户是否选择，都标记为正确
+                if (i === letterToIndex(question.answer)) {
+                    btn.classList.add('option-btn-correct');
+                }
+            });
+
+            // 标记用户选择的选项
+            selectedOption = letter;
+            optionBtns[selectedIndex].classList.add('option-btn-selected');
+
+            // 检查答案并更新UI
+            if (selectedOption === question.answer) {
+                score += 10;
+                correctAnswers++;
+                optionBtns[selectedIndex].classList.add('option-btn-correct');
+                document.getElementById('result-icon-small').className = 'fa fa-check-circle text-green-500 text-xl mt-0.5 mr-2';
+            } else {
+                incorrectAnswers++;
+                optionBtns[selectedIndex].classList.add('option-btn-incorrect');
+                document.getElementById('result-icon-small').className = 'fa fa-times-circle text-red-500 text-xl mt-0.5 mr-2';
+            }
+
+            // 显示解析
+            explanationText.textContent = question.explanation;
+            explanationContainer.classList.remove('hidden');
+
+            // 更新分数显示
+            scoreText.textContent = `得分: ${score}`;
+
+            // 启用下一题按钮
+            nextBtn.disabled = false;
+
+            // 标记问题已回答
+            questionAnswered = true;
+        }
+
+        function updateProgress() {
+            progressText.textContent = `问题 ${currentQuestionIndex + 1}/10`;
+            progressValue.style.width = `${(currentQuestionIndex + 1) * 10}%`;
+        }
+
+        function showResult() {
+            questionScreen.classList.add('hidden');
+            resultScreen.classList.remove('hidden');
+            finalScore.textContent = score;
+            correctCount.textContent = correctAnswers;
+            incorrectCount.textContent = incorrectAnswers;
+            accuracy.textContent = `${(correctAnswers / 10 * 100).toFixed(0)}%`;
+        }
+
+        startBtn.addEventListener('click', () => {
+            welcomeScreen.classList.add('hidden');
+            questionScreen.classList.remove('hidden');
+            selectQuestionBank();
+            showQuestion();
+            updateProgress();
+        });
+
+        prevBtn.addEventListener('click', () => {
+            if (currentQuestionIndex > 0) {
+                currentQuestionIndex--;
+                showQuestion();
+                updateProgress();
+            }
+        });
+
+        nextBtn.addEventListener('click', () => {
+            if (currentQuestionIndex < 9) {
+                currentQuestionIndex++;
+                showQuestion();
+                updateProgress();
+            } else {
+                showResult();
+            }
+        });
+
+        restartBtn.addEventListener('click', () => {
+            resultScreen.classList.add('hidden');
+            welcomeScreen.classList.remove('hidden');
+            currentQuestionIndex = 0;
+            score = 0;
+            correctAnswers = 0;
+            incorrectAnswers = 0;
+            selectedOption = null;
+            questions = [];
+        });
+
+        // 退出按钮点击事件处理程序
+        exitBtnWelcome.addEventListener('click', () => {
+            window.close();
+        });
+
+        exitBtnResult.addEventListener('click', () => {
+            window.close();
+        });
+    </script>
+</body>
+
+</html>
