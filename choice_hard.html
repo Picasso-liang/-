@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>选择难度 - 计算机专业知识问答</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3B82F6',
+                        secondary: '#10B981',
+                        accent: '#8B5CF6',
+                        dark: '#1E293B',
+                        light: '#F8FAFC',
+                        correct: '#10B981',
+                        incorrect: '#EF4444',
+                        easy: '#10B981',    // 绿色表示简单
+                        medium: '#F59E0B',  // 黄色表示中等
+                        hard: '#EF4444',    // 红色表示困难
+                    },
+                    fontFamily: {
+                        inter: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+
+            .quiz-card {
+                @apply bg-white rounded-xl shadow-lg p-6 transform transition-all duration-300 hover:shadow-xl;
+            }
+
+            .option-btn {
+                @apply w-full p-4 border border-gray-300 rounded-lg mb-3 text-left transition-all duration-300 hover:border-primary hover:bg-blue-50 focus:outline-none focus:ring-2 focus:ring-primary/50;
+            }
+
+            .option-btn-selected {
+                @apply border-primary bg-blue-50;
+            }
+
+            .option-btn-correct {
+                @apply border-green-500 bg-green-50;
+            }
+
+            .option-btn-incorrect {
+                @apply border-red-500 bg-red-50;
+            }
+
+            .btn-primary {
+                @apply bg-primary hover:bg-primary/90 text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary/50 disabled:opacity-50 disabled:cursor-not-allowed;
+            }
+
+            .progress-bar {
+                @apply h-2 bg-gray-200 rounded-full overflow-hidden;
+            }
+
+            .progress-value {
+                @apply h-full bg-primary rounded-full transition-all duration-500 ease-out;
+            }
+
+            .explanation-box {
+                @apply mt-4 p-4 rounded-lg border border-gray-200 bg-gray-50;
+            }
+
+            .difficulty-btn {
+                @apply w-full p-4 border border-gray-300 rounded-lg mb-3 text-left transition-all duration-300 hover:border-primary hover:bg-blue-50 focus:outline-none focus:ring-2 focus:ring-primary/50;
+            }
+            
+            .difficulty-badge {
+                @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+            }
+        }
+    </style>
+</head>
+
+<body class="font-inter bg-gradient-to-br from-light to-blue-50 min-h-screen">
+    <div class="container mx-auto px-4 py-8 max-w-4xl">
+        <!-- 头部 -->
+        <header class="mb-8 text-center">
+            <h1 class="text-[clamp(2rem,5vw,3rem)] font-bold text-dark mb-2">计算机知识问答</h1>
+            <p class="text-gray-600 text-lg mb-6">测试你的计算机专业知识水平，挑战自我！</p>
+        </header>
+
+        <!-- 难度选择页面 -->
+        <main class="quiz-card text-center">
+            <div class="w-24 h-24 mx-auto mb-6 rounded-full bg-blue-100 flex items-center justify-center">
+                <i class="fa fa-sliders text-primary text-4xl"></i>
+            </div>
+            <h2 class="text-2xl font-bold text-dark mb-6">选择难度等级</h2>
+            <div class="space-y-3 max-w-md mx-auto">
+                <button id="easy-btn" class="difficulty-btn flex items-center">
+                    <span class="difficulty-badge bg-green-100 text-green-800 mr-3">简单</span>
+                    <span>基础概念与常识 (0-3)</span>
+                </button>
+                <button id="medium-btn" class="difficulty-btn flex items-center">
+                    <span class="difficulty-badge bg-yellow-100 text-yellow-800 mr-3">中等</span>
+                    <span>核心知识与应用 (4-6)</span>
+                </button>
+                <button id="hard-btn" class="difficulty-btn flex items-center">
+                    <span class="difficulty-badge bg-red-100 text-red-800 mr-3">困难</span>
+                    <span>高级理论与实践 (7-10)</span>
+                </button>
+            </div>
+            <div class="mt-8">
+                <button id="back-btn" class="btn-primary bg-gray-600 hover:bg-gray-700">
+                    <i class="fa fa-arrow-left mr-2"></i>返回
+                </button>
+            </div>
+        </main>
+
+        <!-- 页脚 -->
+        <footer class="mt-12 text-center text-gray-500 text-sm">
+            <p>© 2025 计算机专业知识挑战 | 为学习和娱乐而设计</p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const easyBtn = document.getElementById('easy-btn');
+            const mediumBtn = document.getElementById('medium-btn');
+            const hardBtn = document.getElementById('hard-btn');
+            const backBtn = document.getElementById('back-btn');
+
+            // 保存用户选择的难度到localStorage
+            // 将跳转逻辑改为携带难度参数
+            easyBtn.addEventListener('click', () => {
+                window.location.href = `/start/?difficulty=easy`; // 跳转到后端处理的URL
+            });
+            
+            mediumBtn.addEventListener('click', () => {
+                window.location.href = `/start/?difficulty=medium`;
+            });
+            
+            hardBtn.addEventListener('click', () => {
+                window.location.href = `/start/?difficulty=hard`;
+            });
+            backBtn.addEventListener('click', () => {
+                window.history.back();
+            });
+        });
+    </script>
+</body>
+
+</html>
