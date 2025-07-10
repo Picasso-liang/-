@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>编程问答系统 - 分层次学习</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'bootstrap-3.4.1-dist/css/bootstrap.min.css' %}">
+    <script src="{% static 'js/jquery-3.7.1.min.js' %}"></script>
+    <script src="{% static 'bootstrap-3.4.1-dist/js/bootstrap.min.js' %}"></script>
+    <style>
+        body {
+            padding: 20px;
+            background-color: #f5f7fa;
+        }
+        .header {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .level-selector {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .level-btn {
+            margin: 0 10px;
+            padding: 10px 25px;
+            font-size: 16px;
+        }
+        .quiz-container {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 25px;
+            margin-bottom: 30px;
+        }
+        .question-card {
+            display: flex;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+        }
+        .knowledge-sidebar {
+            width: 200px;
+            padding-right: 20px;
+            border-right: 1px solid #eee;
+        }
+        .knowledge-tag {
+            display: inline-block;
+            background-color: #e6f7ff;
+            color: #1890ff;
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin: 3px;
+            font-size: 12px;
+        }
+        .question-main {
+            flex: 1;
+            padding: 0 20px;
+        }
+        .question-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        .option-item {
+            margin-bottom: 10px;
+        }
+        .option-item input {
+            margin-right: 10px;
+        }
+        .difficulty-sidebar {
+            width: 100px;
+            padding-left: 20px;
+            text-align: center;
+        }
+        .difficulty-badge {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+        .difficulty-easy {
+            background-color: #d9f7be;
+            color: #389e0d;
+        }
+        .difficulty-medium {
+            background-color: #fff7e6;
+            color: #d46b08;
+        }
+        .difficulty-hard {
+            background-color: #ffccc7;
+            color: #cf1322;
+        }
+        .submit-btn {
+            display: block;
+            width: 200px;
+            margin: 30px auto;
+            padding: 10px;
+            font-size: 16px;
+        }
+        .progress-info {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h2>编程问答系统 - 分层次学习</h2>
+            <p class="text-muted">根据您的水平选择适合的难度级别</p >
+        </div>
+        
+        <div class="level-selector">
+            <button class="btn btn-primary level-btn" id="easy-level">简单级别</button>
+            <button class="btn btn-warning level-btn" id="medium-level">中等级别</button>
+            <button class="btn btn-danger level-btn" id="hard-level">高等级别</button>
+        </div>
+        
+        <div class="quiz-container" id="quiz-container">
+            <!-- 这里会动态加载题目 -->
+            <div class="text-center" id="level-info">
+                <p class="lead">请选择一个难度级别开始答题</p >
+                <p>简单级别：难度系数0-3的题目</p >
+                <p>中等级别：难度系数4-6的题目</p >
+                <p>高等级别：难度系数7-10的题目</p >
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            // 模拟题目数据 - 实际应用中应从后端获取
+            const questions = {
+                easy: [
+                    {
+                        id: 1,
+                        title: "Python中如何定义一个函数？",
+                        options: {
+                            a: "function myFunc()",
+                            b: "def myFunc()",
+                            c: "define myFunc()",
+                            d: "func myFunc()"
+                        },
+                        answer: "b",
+                        knowledge: ["函数定义", "Python基础"],
+                        difficulty: 2
+                    },
+                    {
+                        id: 2,
+                        title: "以下哪个是JavaScript的数据类型？",
+                        options: {
+                            a: "String",
+                            b: "Number",
+                            c: "Boolean",
+                            d: "以上都是"
+                        },
+                        answer: "d",
+                        knowledge: ["数据类型", "JavaScript基础"],
+                        difficulty: 1
+                    }
+                    // 更多简单题目...
+                ],
+                medium: [
+                    {
+                        id: 3,
+                        title: "在Python中，关于装饰器的描述正确的是？",
+                        options: {
+                            a: "装饰器是一个函数，它接受一个函数作为参数并返回一个新函数",
+                            b: "装饰器只能用于类方法",
+                            c: "@decorator语法是Python2特有的",
+                            d: "装饰器会修改原函数的源代码"
+                        },
+                        answer: "a",
+                        knowledge: ["装饰器", "Python高级特性"],
+                        difficulty: 5
+                    }
+                    // 更多中等题目...
+                ],
+                hard: [
+                    {
+                        id: 4,
+                        title: "关于Python的GIL(全局解释器锁)，以下说法错误的是？",
+                        options: {
+                            a: "GIL确保同一时刻只有一个线程执行Python字节码",
+                            b: "GIL使得Python多线程在CPU密集型任务中表现良好",
+                            c: "GIL是CPython实现特有的",
+                            d: "GIL可以通过多进程来规避"
+                        },
+                        answer: "b",
+                        knowledge: ["GIL", "多线程", "Python高级"],
+                        difficulty: 8
+                    }
+                    // 更多高等题目...
+                ]
+            };
+
+            // 难度级别选择
+            $('.level-btn').click(function() {
+                const level = $(this).attr('id').split('-')[0];
+                startQuiz(level);
+            });
+
+            // 开始答题
+            function startQuiz(level) {
+                // 清空容器
+                $('#quiz-container').empty();
+                
+                // 添加进度信息
+                $('#quiz-container').append(`
+                    <div class="progress-info">
+                        当前级别：<span id="current-level">${getLevelName(level)}</span> | 
+                        题目：<span id="progress">1/10</span>
+                    </div>
+                `);
+                
+                // 获取对应难度的题目
+                const levelQuestions = questions[level];
+                
+                // 随机选择10道题
+                const selectedQuestions = getRandomQuestions(levelQuestions, 10);
+                
+                // 显示题目
+                selectedQuestions.forEach((q, index) => {
+                    renderQuestion(q, index + 1);
+                });
+                
+                // 添加提交按钮
+                $('#quiz-container').append(`
+                    <button class="btn btn-primary submit-btn">提交答案</button>
+                `);
+            }
+            
+            // 渲染单个题目
+            function renderQuestion(question, number) {
+                const difficultyClass = getDifficultyClass(question.difficulty);
+                
+                $('#quiz-container').append(`
+                    <div class="question-card" data-id="${question.id}">
+                        <div class="knowledge-sidebar">
+                            <h5>相关知识点</h5>
+                            ${question.knowledge.map(k => `<span class="knowledge-tag">${k}</span>`).join('')}
+                        </div>
+                        <div class="question-main">
+                            <div class="question-title">${number}. ${question.title}</div>
+                            <div class="option-item">
+                                <input type="radio" name="q${question.id}" value="a" id="q${question.id}a">
+                                <label for="q${question.id}a">A. ${question.options.a}</label>
+                            </div>
+                            <div class="option-item">
+                                <input type="radio" name="q${question.id}" value="b" id="q${question.id}b">
+                                <label for="q${question.id}b">B. ${question.options.b}</label>
+                            </div>
+                            <div class="option-item">
+                                <input type="radio" name="q${question.id}" value="c" id="q${question.id}c">
+                                <label for="q${question.id}c">C. ${question.options.c}</label>
+                            </div>
+                            <div class="option-item">
+                                <input type="radio" name="q${question.id}" value="d" id="q${question.id}d">
+                                <label for="q${question.id}d">D. ${question.options.d}</label>
+                            </div>
+                        </div>
+                        <div class="difficulty-sidebar">
+                            <h5>难度</h5>
+                            <span class="difficulty-badge ${difficultyClass}">${question.difficulty}</span>
+                        </div>
+                    </div>
+                `);
+            }
+            
+            // 辅助函数
+            function getRandomQuestions(questions, count) {
+                // 实际应用中应从后端获取随机题目
+                // 这里只是简单模拟
+                return questions.slice(0, count);
+            }
+            
+            function getLevelName(level) {
+                const names = {
+                    easy: '简单',
+                    medium: '中等',
+                    hard: '高等'
+                };
+                return names[level] || level;
+            }
+            
+            function getDifficultyClass(difficulty) {
+                if (difficulty <= 3) return 'difficulty-easy';
+                if (difficulty <= 6) return 'difficulty-medium';
+                return 'difficulty-hard';
+            }
+        });
+    </script>
+</body>
+</html>
