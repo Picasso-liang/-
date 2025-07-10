@@ -21,10 +21,10 @@
             background-color: #1890ff;
             color: white;
             padding: 1rem 2rem;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             display: flex;
             justify-content: space-between;
             align-items: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
         
         .logo {
@@ -53,82 +53,23 @@
             text-decoration: none;
             font-weight: 500;
             transition: opacity 0.3s;
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
         }
         
         nav ul li a:hover {
             opacity: 0.8;
-            background-color: rgba(255, 255, 255, 0.1);
         }
         
-        /* 更多操作下拉菜单 */
-        .dropdown {
-            position: relative;
-            margin-left: 1.5rem;
-        }
-        
-        .dropdown-button {
-            background: linear-gradient(135deg, #40a9ff, #722ed1);
-            color: white;
-            padding: 0.5rem 1.5rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            cursor: pointer;
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: white;
+            color: #1890ff;
             display: flex;
             align-items: center;
-        }
-        
-        .dropdown-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-            background: linear-gradient(135deg, #2f98eb, #631db4);
-        }
-        
-        .dropdown-content {
-            position: absolute;
-            top: 100%;
-            right: 0;
-            background-color: white;
-            min-width: 160px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-            margin-top: 0.5rem;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(10px);
-            transition: all 0.3s ease;
-            z-index: 1;
-        }
-        
-        .dropdown:hover .dropdown-content {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-        
-        .dropdown-content a {
-            color: #333;
-            padding: 0.75rem 1.5rem;
-            text-decoration: none;
-            display: block;
-            transition: background-color 0.3s;
-        }
-        
-        .dropdown-content a:hover {
-            background-color: #f5f7fa;
-            color: #1890ff;
-        }
-        
-        .dropdown-content a:first-child {
-            border-radius: 8px 8px 0 0;
-        }
-        
-        .dropdown-content a:last-child {
-            border-radius: 0 0 8px 8px;
+            justify-content: center;
+            font-weight: bold;
+            cursor: pointer;
         }
         
         main {
@@ -140,61 +81,146 @@
         .welcome-banner {
             background: linear-gradient(135deg, #1890ff, #36cfc9);
             color: white;
-            padding: 3rem 2rem;
+            padding: 2rem;
             border-radius: 8px;
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
             text-align: center;
         }
         
         .welcome-banner h1 {
-            margin-bottom: 1.5rem;
-            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-size: 2rem;
         }
         
         .welcome-banner p {
             opacity: 0.9;
-            max-width: 800px;
+            max-width: 600px;
             margin: 0 auto;
-            font-size: 1.1rem;
         }
         
         .features {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
         }
         
         .feature-card {
             background: white;
-            border-radius: 12px;
-            padding: 2rem;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
             transition: transform 0.3s, box-shadow 0.3s;
         }
         
         .feature-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 10px 30px rgba(24, 144, 255, 0.15);
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
         
         .feature-card h3 {
             color: #1890ff;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
             display: flex;
             align-items: center;
-            font-size: 1.2rem;
         }
         
         .feature-card h3 svg {
-            margin-right: 0.7rem;
-            width: 24px;
-            height: 24px;
+            margin-right: 0.5rem;
         }
         
         .feature-card p {
             color: #666;
-            line-height: 1.8;
+            line-height: 1.6;
+        }
+        
+        .popular-topics {
+            margin-bottom: 2rem;
+        }
+        
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #333;
+            display: flex;
+            align-items: center;
+        }
+        
+        .section-title svg {
+            margin-right: 0.5rem;
+        }
+        
+        .topics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        
+        .topic-card {
+            background: rgb(255, 255, 255);
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        
+        .topic-card:hover {
+            background: #1890ff;
+            color: rgb(255, 255, 255);
+            box-shadow: 0 5px 15px rgba(24, 144, 255, 0.3);
+        }
+        
+        .topic-card h4 {
+            margin-bottom: 0.5rem;
+        }
+        
+        .hot-questions {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .question-list {
+            margin-top: 1rem;
+        }
+        
+        .question-item {
+            padding: 1rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .question-item:last-child {
+            border-bottom: none;
+        }
+        
+        .question-item h4 {
+            margin-bottom: 0.5rem;
+            color: #333333;
+        }
+        
+        .question-item p {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .question-meta {
+            display: flex;
+            font-size: 0.8rem;
+            color: #999;
+        }
+        
+        .question-meta span {
+            margin-right: 1rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .question-meta svg {
+            margin-right: 0.3rem;
         }
         
         footer {
@@ -207,46 +233,25 @@
         
         /* 图标样式 */
         .icon {
-            width: 24px;
-            height: 24px;
+            width: 20px;
+            height: 20px;
             fill: currentColor;
         }
-        
-        .dropdown-icon {
-            width: 16px;
-            height: 16px;
-            margin-left: 0.5rem;
+
+        #用户中心 a{
+            text-decoration: none;
         }
 
         /*删除下划线*/
         .feature-card a {
-            text-decoration: none;
+        text-decoration: none;
         }
+        
+ 
 
-        /* 放大的挑战按钮样式 */
-        .challenge-button {
-            display: block;
-            width: 100%;
-            max-width: 400px;
-            margin: 3rem auto;
-            padding: 1.5rem 2rem;
-            background: linear-gradient(135deg, #1890ff, #36cfc9);
-            color: white;
-            font-size: 1.5rem;
-            font-weight: bold;
-            text-align: center;
-            text-decoration: none;
-            border-radius: 50px;
-            box-shadow: 0 8px 30px rgba(24, 144, 255, 0.3);
-            transition: all 0.3s ease;
-            cursor: pointer;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
 
-        .challenge-button:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 40px rgba(24, 144, 255, 0.4);
-        }
+
+
     </style>
 </head>
 <body>
@@ -264,19 +269,8 @@
                 <li><a href="./使用历史.html" >使用历史</a></li>
             </ul>
         </nav>
-        
-        <!-- 添加更多操作下拉菜单 -->
-        <div class="dropdown">
-            <div class="dropdown-button">
-                更多操作
-                <svg class="dropdown-icon" viewBox="0 0 24 24">
-                    <path d="M7 10l5 5 5-5z"/>
-                </svg>
-            </div>
-            <div class="dropdown-content">
-                <a href="./set_password.html">修改密码</a>
-                <a href="./register.html">退出登录</a>
-            </div>
+        <div class="user-avatar" id="user-avatar">
+            <span>用户</span>
         </div>
     </header>
     
@@ -286,10 +280,19 @@
             <p>在这里，您可以找到各种编程问题的解答，与同行交流，提升您的编程技能</p >
         </div>
         
-        <!-- 放大的挑战按钮 -->
-        <a href="./start.html" class="challenge-button">准备好了吗，来挑战！</a>
-        
         <div class="features" >
+            <div class="feature-card">
+                <a href="./start.html">
+                    <h3>
+                    <svg class="icon" viewBox="0 0 24 24">
+                        <path d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9-4.03-9-9-9zm0 16c-3.86 0-7-3.14-7-7s3.14-7 7-7 7 3.14 7 7-3.14 7-7 7zm1-11h-2v3H8v2h3v3h2v-3h3v-2h-3V8z"/>
+                    </svg>
+                    分层次学习
+                    </h3>
+                    <p>不同水平，不同问题，快来挑战</p >
+                </a>
+            </div>
+
             <div class="feature-card" >
                 <a href="./热门问题.html">
                     <h3>
@@ -318,7 +321,7 @@
                 <a href="./活跃社区.html">
                     <h3>
                     <svg class="icon" viewBox="0 0 24 24">
-                        <path d="M16 11c1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3 1.34 3 3 3zm-8 0c1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3 1.34-3 3-3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
+                        <path d="M16 11c1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3 1.34 3 3 3zm-8 0c1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3 1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
                     </svg>
                     活跃社区
                     </h3>
@@ -326,6 +329,107 @@
                 </a>
             </div>
             
+        </div>
+        
+        <div class="popular-topics">
+            <h2 class="section-title">
+                <svg class="icon" viewBox="0 0 24 24">
+                    <path d="M21.41 11.58l-9-9C12.05 2.22 11.55 2 11 2H4c-1.1 0-2 .9-2 2v7c0 .55.22 1.05.59 1.42l9 9c.36.36.86.58 1.41.58.55 0 1.05-.22 1.41-.59l7-7c.37-.36.59-.86.59-1.41 0-.55-.23-1.06-.59-1.42zM13 20.01L4 11V4h7v-.01l9 9-7 7.02z"/>
+                    <circle cx="6.5" cy="6.5" r="1.5"/>
+                </svg>
+                热门编程语言
+            </h2>
+            <div class="topics-grid">
+                <div class="topic-card">
+                    <h4>Python</h4>
+                    <p>1200+ 问题</p >
+                </div>
+                <div class="topic-card">
+                    <h4>JavaScript</h4>
+                    <p>980+ 问题</p >
+                </div>
+                <div class="topic-card">
+                    <h4>Java</h4>
+                    <p>850+ 问题</p >
+                </div>
+                <div class="topic-card">
+                    <h4>C#</h4>
+                    <p>750+ 问题</p >
+                </div>
+                <div class="topic-card">
+                    <h4>CSS3</h4>
+                    <p>680+ 问题</p >
+                </div>
+                <div class="topic-card">
+                    <h4>Ruby</h4>
+                    <p>520+ 问题</p >
+                </div>
+            </div>
+        </div>
+        
+        <div class="hot-questions">
+            <h2 class="section-title">
+                <svg class="icon" viewBox="0 0 24 24">
+                    <path d="M16 2H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-4 15c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm1-5h-2V7h2v5z"/>
+                </svg>
+                今日热门问题
+            </h2>
+            <div class="question-list">
+                <div class="question-item">
+                    <h4>如何在Python中实现多线程？</h4>
+                    <p>我正在尝试在我的Python应用程序中使用多线程来提高性能，但遇到了一些问题...</p >
+                    <div class="question-meta">
+                        <span>
+                            <svg class="icon" viewBox="0 0 24 24">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.31-8.86c-1.77-.45-2.34-.94-2.34-1.67 0-.84.79-1.43 2.1-1.43 1.38 0 1.9.66 1.94 1.64h1.71c-.05-1.34-.87-2.57-2.49-2.97V5H10.9v1.69c-1.51.32-2.72 1.3-2.72 2.81 0 1.79 1.49 2.69 3.66 3.21 1.95.46 2.34 1.15 2.34 1.87 0 .53-.39 1.39-2.1 1.39-1.6 0-2.23-.72-2.32-1.64H8.04c.1 1.7 1.36 2.66 2.86 2.97V19h2.34v-1.67c1.52-.29 2.72-1.16 2.73-2.77-.01-2.2-1.9-2.96-3.66-3.42z"/>
+                            </svg>
+                            15 回答
+                        </span>
+                        <span>
+                            <svg class="icon" viewBox="0 0 24 24">
+                                <path d="M14 10H2v2h12v-2zm0-4H2v2h12V6zm4 8v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zM2 16h8v-2H2v2z"/>
+                            </svg>
+                            32 浏览
+                        </span>
+                    </div>
+                </div>
+                <div class="question-item">
+                    <h4>CSS3中的flex布局有什么优势？</h4>
+                    <p>与传统布局方式相比，flex布局在哪些场景下更有优势？能否举例说明...</p >
+                    <div class="question-meta">
+                        <span>
+                            <svg class="icon" viewBox="0 0 24 24">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.31-8.86c-1.77-.45-2.34-.94-2.34-1.67 0-.84.79-1.43 2.1-1.43 1.38 0 1.9.66 1.94 1.64h1.71c-.05-1.34-.87-2.57-2.49-2.97V5H10.9v1.69c-1.51.32-2.72 1.3-2.72 2.81 0 1.79 1.49 2.69 3.66 3.21 1.95.46 2.34 1.15 2.34 1.87 0 .53-.39 1.39-2.1 1.39-1.6 0-2.23-.72-2.32-1.64H8.04c.1 1.7 1.36 2.66 2.86 2.97V19h2.34v-1.67c1.52-.29 2.72-1.16 2.73-2.77-.01-2.2-1.9-2.96-3.66-3.42z"/>
+                            </svg>
+                            8 回答
+                        </span>
+                        <span>
+                            <svg class="icon" viewBox="0 0 24 24">
+                                <path d="M14 10H2v2h12v-2zm0-4H2v2h12V6zm4 8v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zM2 16h8v-2H2v2z"/>
+                            </svg>
+                            45 浏览
+                        </span>
+                    </div>
+                </div>
+                <div class="question-item">
+                    <h4>C#中的async/await最佳实践是什么？</h4>
+                    <p>在使用async/await时，有哪些常见的陷阱需要避免？如何编写高效的异步代码...</p >
+                    <div class="question-meta">
+                        <span>
+                            <svg class="icon" viewBox="0 0 24 24">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.31-8.86c-1.77-.45-2.34-.94-2.34-1.67 0-.84.79-1.43 2.1-1.43 1.38 0 1.9.66 1.94 1.64h1.71c-.05-1.34-.87-2.57-2.49-2.97V5H10.9v1.69c-1.51.32-2.72 1.3-2.72 2.81 0 1.79 1.49 2.69 3.66 3.21 1.95.46 2.34 1.15 2.34 1.87 0 .53-.39 1.39-2.1 1.39-1.6 0-2.23-.72-2.32-1.64H8.04c.1 1.7 1.36 2.66 2.86 2.97V19h2.34v-1.67c1.52-.29 2.72-1.16 2.73-2.77-.01-2.2-1.9-2.96-3.66-3.42z"/>
+                            </svg>
+                            12 回答
+                        </span>
+                        <span>
+                            <svg class="icon" viewBox="0 0 24 24">
+                                <path d="M14 10H2v2h12v-2zm0-4H2v2h12V6zm4 8v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zM2 16h8v-2H2v2z"/>
+                            </svg>
+                            28 浏览
+                        </span>
+                    </div>
+                </div>
+            </div>
         </div>
     </main>
     
@@ -341,9 +445,18 @@
             const loggedIn = urlParams.get('loggedIn');
             
             if (loggedIn === 'true') {
-                // 可以在这里添加登录后的处理逻辑
-                console.log('用户已登录');
+                // 显示欢迎消息
+                const username = urlParams.get('username') || '用户';
+                document.getElementById('user-avatar').textContent = username.charAt(0).toUpperCase();
+                
+                // 可以在这里添加更多的登录后处理逻辑
             }
+        });
+        
+        // 用户头像点击事件
+        document.getElementById('user-avatar').addEventListener('click', function() {
+            // 跳转到用户中心
+            window.location.href = './用户中心.html';
         });
     </script>
 </body>
